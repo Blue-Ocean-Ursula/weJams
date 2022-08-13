@@ -1,0 +1,9 @@
+.versionControl {
+  border-style: solid;
+  border-color: black;
+  background-color:  rgb(46, 46, 46);
+  height: 40em;
+  width: 75%;
+  display: flex;
+  border-radius: 5px;
+}
