@@ -1,0 +1,56 @@
+body {
+  background-image: url('https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp');
+  /* margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0; */
+  /* background-size: cover;
+  width: 100%; */
+  /* height: 100%; */
+  /* top: 0;
+  left: 0; */
+  /* min-height: 100vh; */
+  /* min-width: 100vw; */
+  background-size:cover;
+}
+
+.mainLanding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#weTitle {
+
+  color: aliceblue;
+  font-size: 150pt;
+  text-align: center;
+  font-family: cursive;
+}
+
+.landpage-buttons {
+  border: 0;
+  color: red;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0);
+  text-align: center;
+}
+
+.signup-modal {
+  background-color: rgba(1, 180, 255, .8);
+  border-radius: 15px;
+  color: red;
+  display: flex;
+  flex-direction: column;
+}
