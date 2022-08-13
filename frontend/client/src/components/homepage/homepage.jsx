@@ -1,7 +1,6 @@
 import React from 'react';
-import Homepage from './homepage/homepage.jsx';
 
-class App extends React.Component {
+class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,8 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>Land Page</h1>
-        <Homepage/>
+        <h1>Home Page</h1>
 
       </>
 
@@ -23,4 +21,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Homepage;
