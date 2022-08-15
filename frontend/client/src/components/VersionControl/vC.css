@@ -1,3 +1,5 @@
+/*----------------------------------------  MAIN  -------------------------------------------------*/
+
 .versionControl {
   border-style: solid;
   border-color: black;
@@ -23,7 +25,7 @@
 .vCModalContainer {
   width: 750px;
   height: auto;
-  background-color: rgb(240, 245, 249);
+  background-color: rgb(46, 46, 46);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
@@ -33,6 +35,18 @@
   z-index: 1001;
 }
 
+.vItemTopRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vItemBottomRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*------------------------------------------  VERSION LIST  ------------------------------------------*/
+
 .versionList {
   padding: 25px;
 }
@@ -40,7 +54,99 @@
 .versionItem {
   width: auto;
   height: auto;
+  padding: 10px;
+  /* border-style: solid; */
+  /* border-color: black; */
+  background-color: rgb(91, 91, 91);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+
+/*------------------------------------------  UPLOAD MODALS -----------------------------------------*/
+
+
+.uploadModalBackground {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  padding-right: 420px;
+  padding-bottom: 270px;
+  position: absolute;
+}
+
+.uploadModalContainer {
+  width: 600px;
+  height: auto;
+  background-color: rgb(91, 91, 91);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
   padding: 25px;
-  border-style: solid;
-  border-color: black;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1002;
+}
+
+.modalTopRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*-------------------------------------------  BUTTONS  ---------------------------------------------*/
+.uploadButton {
+  background-color: rgb(91, 91, 91);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  padding: 10px;
+  border-width: 0;
+  border-radius: 15px;
+  color: rgb(255, 115, 0);
+  font-weight: bold;
+}
+
+.downloadButton {
+  background-color:rgb(131, 131, 131);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  padding: 5px;
+  border-width: 0;
+  border-radius: 8px;
+  font-size: 8pt;
+  color: rgb(255, 115, 0);
+  font-weight: bold;
+}
+
+
+/*--------------------------------------------  TEXT  -----------------------------------------------*/
+
+.orangeText24 {
+  color: rgb(255, 115, 0);
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  font-size: 24pt;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.orangeText10 {
+  color: rgb(255, 115, 0);
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  font-size: 10pt;
+  font-weight: bold;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 5px;
+}
+
+.lineup {
+  display: flex;
+}
+
+.basicGray {
+  color:rgb(183, 183, 183);
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
 }

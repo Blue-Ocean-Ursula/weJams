@@ -11,8 +11,46 @@ class VersionItem extends React.Component {
   render() {
     return (
       <div className="versionItem">
-        <div>version item</div>
-
+        <div className="vItemTopRow">
+          <div className="lineup">
+            <div className="orangeText10">
+              version:
+            </div>
+            <div className="basicGray">
+              {this.props.version.version_name}
+            </div>
+          </div>
+          <div className="lineup">
+            <div className="orangeText10">
+              created:
+            </div>
+            <div className="basicGray">
+              {this.props.version.createdAt}
+            </div>
+          </div>
+        </div>
+        <audio controls>
+          <source src={this.props.version.url} />
+        </audio>
+        <div className="lineup">
+          <div className="orangeText10">
+            description:
+          </div>
+          <div className="basicGray">
+            {this.props.version.description}
+          </div>
+        </div>
+        <div className="vItemBottomRow">
+          <button className="downloadButton">download</button>
+          <div className="lineup">
+            <div className="orangeText10">
+              likes:
+            </div>
+            <div className="basicGray">
+              {this.props.version.likes}
+            </div>
+          </div>
+        </div>
       </div>
 
     )

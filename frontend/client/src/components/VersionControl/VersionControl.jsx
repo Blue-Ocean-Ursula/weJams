@@ -1,6 +1,7 @@
 import React from 'react';
 import "./vC.css";
 import VersionItem from "./VersionItem.jsx";
+import UploadModal from "./UploadModal.jsx";
 
 class VersionControl extends React.Component {
   constructor(props) {
@@ -65,17 +66,18 @@ render() {
 
   return (
     <>
+      {this.state.uploadModal && <UploadModal close={this.handleUpload}/>}
       <div className="versionControl" className="vCModalBackground">
         <div className="vCModalContainer">
-          <div>
-            Version Control
+          <div className="orangeText24">
+            Project History
           </div>
           {/* display component that lists the different versions of the project */}
           {/* render list here */}
           <div className="versionList" >{versionList}</div>
           <div>
-            <button>download</button>
-            <button onClick={this.handleUpload}>upload new version</button>
+
+            <button className="uploadButton" onClick={this.handleUpload}>upload new version</button>
           </div>
         </div>
       </div>
