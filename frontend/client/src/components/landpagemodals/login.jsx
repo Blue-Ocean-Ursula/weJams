@@ -12,7 +12,8 @@ class Login extends React.Component {
 
   render() {
     return (
-      <>
+      <div className='landingModalBackground' onClick={this.props.exit}>
+        <div className='landingModalContainer'>
         <h1>Login</h1>
         <input
           type='text'
@@ -28,7 +29,8 @@ class Login extends React.Component {
         />
         <button onClick={this.props.submit}>Submit</button>
         {this.props.userErr && <span style={{'color':'red'}}>errr message here</span>}
-      </>
+        </div>
+      </div>
 
 
     )

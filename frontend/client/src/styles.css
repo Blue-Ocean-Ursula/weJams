@@ -1,5 +1,5 @@
-body {
-  background-image: url('https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp');
+.app {
+  /* background-image: url('https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp'); */
   /* margin: 0px;
   padding: 0px;
   width: 100vw;
@@ -19,7 +19,11 @@ body {
   left: 0; */
   /* min-height: 100vh; */
   /* min-width: 100vw; */
-  background-size:cover;
+  /* background-size:cover; */
+}
+
+.homePage {
+  background: white;
 }
 
 .mainLanding {
@@ -46,11 +50,42 @@ body {
   background-color: rgba(0, 0, 0, 0);
   text-align: center;
 }
+.landpage-buttons:hover {
+  color: blue;
+}
 
-.signup-modal {
-  background-color: rgba(1, 180, 255, .8);
-  border-radius: 15px;
-  color: red;
+.landingModalBackground {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: rgba(0, 0, 0, .5);
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.landingModalContainer {
+  width: 750px;
+  height: auto;
+  background-color: rgb(240, 245, 249);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
+  padding: 25px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1001;
+}
+
+.homepage-container {
+
+}
+
+.homepage-usersphoto {
+  width: 10vw;
+  height: 10vh;
+}
+
+.homepage-usersList {
+
 }
