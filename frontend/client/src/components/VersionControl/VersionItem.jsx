@@ -43,7 +43,7 @@ class VersionItem extends React.Component {
         <div className="vItemBottomRow">
           <button className="downloadButton">download</button>
           <div className="lineup">
-            <div className="orangeText10">
+            <div className="likes">
               likes:
             </div>
             <div className="basicGray">
