@@ -4,19 +4,18 @@ const passport = require('passport');
 const passportLocal = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 require('../passportConfig')(passport);
-const {JamsAuth} = require('../db/schema.js');
+const {JamsAuth, JamsUser} = require('../db/schema.js');
 
 
 router.get('/', function(req, res, next) {
-  console.log('abc')
   res.status(200).send('respond with a resource');
 });
 
 router.post('/login', (req, res, next) => {
-  console.log(req.body)
-  console.log('!!!')
+  // console.log(req.body)
   passport.authenticate('local', (err, user, info) => {
     if (err) {
+      console.log(err)
       throw err;
     }
     if (!user) {
@@ -27,14 +26,13 @@ router.post('/login', (req, res, next) => {
           throw err;
         }
         res.send('successfully authenticated');
-        console.log(req.user)
+
       })
     }
   })(req, res, next)
 })
 
 router.post('/register', async (req, res) => {
-  console.log('???')
   console.log(req.body);
   try {
     const result = await JamsAuth.findOne({username: req.body.username})
@@ -58,11 +56,26 @@ router.post('/register', async (req, res) => {
   }
 })
 
-router.get('/getUser', (req, res) => {
-  console.log(req.user)
-  res.send(req.user)
+router.get('/getUser', async (req, res) => {
+  console.log(req.user.username)
+  if (req.user) {
+    try {
+      const userInfo = await JamsUser.findOne({username: req.user.username})
+      console.log('userInfo is ', userInfo)
+      res.status(200).send(userInfo)
+    }
+    catch(err) {
+      console.log(err)
+      res.status(404).send(err)
+    }
+  } else {
+    res.status(200).send('please log in first')
+  }
+
 
 })
+
+
 
 module.exports = router;
 
