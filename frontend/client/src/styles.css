@@ -396,14 +396,17 @@ input {
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
 }
 
-.hompage-userprojects-div {
+.homepage-userprojects-div {
+  display: flex;
   color: rgb(255, 115, 0);
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
   font-size: 10pt;
   font-weight: bold;
-  padding-right: 5px;
-  padding-top: 2px;
-  padding-bottom: 5px;
+  padding: 0;
+  /* padding-right: 5px; */
+  /* padding-top: 2px;
+  padding-bottom: 5px; */
   max-height: 30px;
   text-align: center;
+  flex-direction: column;
 }

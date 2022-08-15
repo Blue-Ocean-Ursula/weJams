@@ -17,11 +17,11 @@ class HPUsersList extends React.Component {
       <div className="homepage-userlist-div">
         <div className="username-photo">
           <img className='usersList-photo' src={this.props.user.avatar} alt='profile' />
-          <div className="hompage-userprojects-div">{this.props.user.username}</div>
+          <div className="homepage-userprojects-div">{this.props.user.username}</div>
         </div>
-        <div className='homepage-userprojects-div'>{userUploads}</div>
+        <div className="homepage-userprojects-div">{userUploads}</div>
 
-        <div className="hompage-userprojects-div">
+        <div className="homepage-userprojects-div">
           <button className="messageButton">Message</button>
           <button className="requestButton">Request Collaboration</button>
         </div>
