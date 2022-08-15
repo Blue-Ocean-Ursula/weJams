@@ -1,5 +1,4 @@
 import React from 'react';
-import VersionControl from '../VersionControl/VersionControl.jsx';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -14,8 +13,8 @@ class Homepage extends React.Component {
   render() {
     return (
       <>
-        {/* <h1>Home Page</h1> */}
-        <VersionControl />
+        <h1>Home Page</h1>
+
       </>
 
     )
