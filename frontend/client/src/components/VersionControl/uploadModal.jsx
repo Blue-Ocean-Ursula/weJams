@@ -23,8 +23,8 @@ class UploadModal extends React.Component {
       <div className="uploadModalBackground">
         <div className="uploadModalContainer">
           <div className="modalTopRow">
-            <div>
-              Upload Modal
+            <div className="orangeText20">
+              upload new version
             </div>
             <button className="modalCloseButton" onClick={this.props.close}>
               x
