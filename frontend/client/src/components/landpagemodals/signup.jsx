@@ -12,8 +12,9 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div className='landingModalBackground' onClick={this.props.exit}>
+      <div className='landingModalBackground'>
         <div className='landingModalContainer'>
+        <button id='modalExit' onClick={this.props.exit}>X</button>
           <h1>Sign-Up</h1>
           <p>Please create a new username and password</p>
           <input

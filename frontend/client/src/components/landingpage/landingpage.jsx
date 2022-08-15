@@ -56,6 +56,8 @@ class Landing extends React.Component {
       this.setState({
         userErr: true
       })
+      this.props.changeUser(user)
+      alert('user = ' + user)
   }
 
   signUpButton = (e) => {
@@ -110,7 +112,7 @@ class Landing extends React.Component {
         <button onClick={this.loginButton} className='landpage-buttons'>Login</button>
         <button onClick={this.signUpButton} className='landpage-buttons'>Sign Up</button>
         <button onClick={this.props.goHome} className='landpage-buttons'>Continue as Guest</button>
-        {this.state.loginModal && <Login loginVal={this.loginVal} submit={this.loginSubmitButton} userErr={this.state.userErr} passErr={this.state.passErr} exit={this.exitModal}/>}
+        {this.state.loginModal && <Login open={this.state.loginModal} changeUser={this.props.changeUser} loginVal={this.loginVal} submit={this.loginSubmitButton} userErr={this.state.userErr} passErr={this.state.passErr} exit={this.exitModal}/>}
         {this.state.signupModal && <Signup loginVal={this.loginVal} submit={this.signupSubmitButton} exit={this.exitModal}/>}
       </div>
 

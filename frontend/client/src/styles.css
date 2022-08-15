@@ -1,31 +1,49 @@
-.app {
-  /* background-image: url('https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp'); */
-  /* margin: 0px;
-  padding: 0px;
-  width: 100vw;
-  height: 100vh;
+/*==========Tag Styling==========*/
+button {
+  margin: 0vh 1vh 0vh 1vh;
+}
+image {
+  max-width: 100%;
+}
+input {
+  height: 20px;
+}
+/*==========Nav Bar==========*/
+.navbar {
+  background-image: url('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg');
   background-size: cover;
-  min-height: 100%;
-  min-width: 1024px;
-  width: 100%;
-  height: auto;
-  position: fixed;
-  top: 0;
-  left: 0; */
-  /* background-size: cover;
-  width: 100%; */
-  /* height: 100%; */
-  /* top: 0;
-  left: 0; */
-  /* min-height: 100vh; */
-  /* min-width: 100vw; */
-  /* background-size:cover; */
+  max-height: 6vh;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1vh;
+  z-index: 1000;
 }
-
-.homePage {
-  background: white;
+#logo {
+  opacity: .5;
+  display: flex;
+  max-height: fit-content;
+  max-width: 10vw;
+  margin: 2px;
+  border-radius: 5px;
+  margin: 0;
+  align-content: center;
+  justify-content: center;
 }
-
+#logout {
+  margin-top: 1vh;
+  max-height: 20px;
+}
+#search{
+  margin-top: 1vh;
+}
+#signedIn{
+  margin-top: 1vh;
+  color: white;
+}
+#modalExit {
+  width: fit-content;
+}
+/*==========Landing Page==========*/
 .mainLanding {
   display: flex;
   flex-direction: column;
@@ -33,15 +51,12 @@
   justify-content: center;
   text-align: center;
 }
-
 #weTitle {
-
   color: aliceblue;
   font-size: 150pt;
   text-align: center;
   font-family: cursive;
 }
-
 .landpage-buttons {
   border: 0;
   color: red;
@@ -52,6 +67,7 @@
 }
 .landpage-buttons:hover {
   color: blue;
+  transition-duration: 1s;
 }
 
 .landingModalBackground {
@@ -77,15 +93,317 @@
   z-index: 1001;
 }
 
-.homepage-container {
-
+/*==========homepage==========*/
+.homePage {
+  background: white;
+}
+.homepage-userinfo-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(91, 91, 91);
+  max-width: 20vw;
+  max-height: fit-content;
+  border-radius: 5px;
+  margin: 10px;
+  align-content: center;
+  justify-content: center;
 }
 
-.homepage-usersphoto {
-  width: 10vw;
-  height: 10vh;
+.usersphoto {
+  max-height: 90%;
+  max-width: 90%;
+  margin: 10px auto;
 }
 
-.homepage-usersList {
+.userbio {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  max-width: 90%;
+  text-align: justify;
+  color: rgb(255, 115, 0);
+}
 
+.username-h4 {
+ margin: 0 auto;
+ margin-top: 10px;
+ margin-bottom: 10px;
+ max-width: 90%;
+ color: rgb(255, 115, 0);
+}
+
+.homepage-usersList-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  max-width: 40vw;
+  max-height: fit-content;
+  border-radius: 5px;
+  margin: 10px;
+  align-content: center;
+  justify-content: center;
+}
+
+.usersList-photo {
+  max-height: 90%;
+  max-width: 90%;
+  margin: 10px;
+}
+
+.usersList-orderedList {
+  display: flex;
+  margin: 10px auto;
+  flex-direction: row;
+  /* margin-bottom: 10px;
+  max-width: 90%;
+  text-align: justify; */
+}
+
+.homepage-musicList-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  max-width: 40vw;
+  max-height: fit-content;
+  border-radius: 5px;
+  margin: 10px;
+  align-content: center;
+  justify-content: center;
+}
+
+.homepage-musicList-div {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(95, 95, 95);
+  max-width: 40vw;
+  max-height: fit-content;
+  border-radius: 5px;
+  margin: 10px;
+  align-content: center;
+  justify-content: center;
+}
+
+.musicList-orderedList {
+  display: flex;
+  margin: 0 auto;
+  padding-left: 0px;
+  flex-direction: row;
+}
+
+/*==========HPMusicList==========*/
+
+/*----------------------------------------  MAIN  -------------------------------------------------*/
+
+.versionControl {
+  border-style: solid;
+  border-color: black;
+  background-color:  rgb(46, 46, 46);
+  height: 40em;
+  width: 75%;
+  display: flex;
+  border-radius: 5px;
+}
+
+
+.vCModalBackground {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  padding-right: 420px;
+  padding-bottom: 270px;
+  position: absolute;
+}
+
+.vCModalContainer {
+  width: 750px;
+  height: auto;
+  background-color: rgb(46, 46, 46);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1001;
+}
+
+.vItemTopRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vItemBottomRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.username-photo {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-content: center; */
+  max-width: 10vw;
+  max-height: 20vh;
+  margin: 0;
+}
+
+/*------------------------------------------  VERSION LIST  ------------------------------------------*/
+
+.versionList {
+  padding: 25px;
+}
+
+.versionItem {
+  width: auto;
+  height: auto;
+  padding: 10px;
+  max-width: 40%;
+  /* border-style: solid; */
+  /* border-color: black; */
+  background-color: rgb(91, 91, 91);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.homepage-userlist-div {
+  display: flex;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  max-width: 40%;
+  /* border-style: solid; */
+  /* border-color: black; */
+  /* flex-direction: row; */
+  justify-content: space-between;
+  background-color: rgb(91, 91, 91);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+
+/*------------------------------------------  UPLOAD MODALS -----------------------------------------*/
+
+
+.uploadModalBackground {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  padding-right: 420px;
+  padding-bottom: 270px;
+  position: absolute;
+}
+
+.uploadModalContainer {
+  width: 600px;
+  height: auto;
+  background-color: rgb(91, 91, 91);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1002;
+}
+
+.modalTopRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*-------------------------------------------  BUTTONS  ---------------------------------------------*/
+.uploadButton {
+  background-color: rgb(91, 91, 91);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  padding: 10px;
+  border-width: 0;
+  border-radius: 15px;
+  color: rgb(255, 115, 0);
+  font-weight: bold;
+}
+
+.downloadButton {
+  background-color:rgb(131, 131, 131);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  padding: 5px;
+  border-width: 0;
+  border-radius: 8px;
+  font-size: 8pt;
+  color: rgb(255, 115, 0);
+  font-weight: bold;
+}
+
+.messageButton {
+  background-color:rgb(131, 131, 131);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  padding: 5px;
+  border-width: 0;
+  border-radius: 8px;
+  font-size: 8pt;
+  color: rgb(255, 115, 0);
+  font-weight: bold;
+}
+
+.requestButton {
+  background-color:rgb(131, 131, 131);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  padding: 5px;
+  border-width: 0;
+  border-radius: 8px;
+  font-size: 8pt;
+  color: rgb(255, 115, 0);
+  font-weight: bold;
+}
+
+
+/*--------------------------------------------  TEXT  -----------------------------------------------*/
+
+.orangeText24 {
+  color: rgb(255, 115, 0);
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  font-size: 24pt;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.orangeText10 {
+  color: rgb(255, 115, 0);
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  font-size: 10pt;
+  font-weight: bold;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 5px;
+}
+
+.lineup {
+  display: flex;
+}
+
+.basicGray {
+  color:rgb(183, 183, 183);
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+}
+
+.hompage-userprojects-div {
+  color: rgb(255, 115, 0);
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  font-size: 10pt;
+  font-weight: bold;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 5px;
+  max-height: 30px;
+  text-align: center;
 }

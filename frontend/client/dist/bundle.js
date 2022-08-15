@@ -68,14 +68,35 @@ var App = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
 
+    _defineProperty(_assertThisInitialized(_this), "goLanding", function (e) {
+      _this.setState({
+        view: 'landing',
+        background: 'https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp'
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this), "goHome", function (e) {
       _this.setState({
         view: 'home',
+        background: 'https://res.cloudinary.com/dktim9rur/image/upload/v1658162058/nyyag1xyh1z7akuep8px.gif'
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "goProfile", function (e) {
+      _this.setState({
+        view: 'profile',
         background: 'https://media.giphy.com/media/Wm92G9u3KisHcdo3yl/giphy.gif'
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "changeUser", function (user) {
+      _this.setState({
+        user: user
+      });
+    });
+
     _this.state = {
+      user: 'Guest',
       view: 'landing',
       background: 'https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp'
     };
@@ -89,9 +110,14 @@ var App = /*#__PURE__*/function (_React$Component) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_styledComp_jsx__WEBPACK_IMPORTED_MODULE_7__.Global, {
           backgroundImg: this.state.background
         }), this.state.view === 'landing' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_landingpage_landingpage_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          goHome: this.goHome
+          goHome: this.goHome,
+          user: this.state.user,
+          changeUser: this.changeUser
         }), this.state.view === 'home' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_homepage_homepage_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          className: "homePage"
+          goProfile: this.goProfile,
+          land: this.goLanding,
+          user: this.state.user,
+          changeUser: this.changeUser
         })]
       });
     }
@@ -115,7 +141,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _navbar_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar.jsx */ "./client/src/components/homepage/navbar.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _musicList_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./musicList.jsx */ "./client/src/components/homepage/musicList.jsx");
+/* harmony import */ var _usersList_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./usersList.jsx */ "./client/src/components/homepage/usersList.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -144,6 +172,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 var Homepage = /*#__PURE__*/function (_React$Component) {
   _inherits(Homepage, _React$Component);
 
@@ -155,28 +185,199 @@ var Homepage = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Homepage);
 
     _this = _super.call(this, props);
-    _this.state = {};
+    _this.state = {
+      uploads: {
+        "musicName": "Javascript is another jazz",
+        "version_history": [{
+          "version_name": "Official instrumental",
+          "description": "I got the inspiration from my FEC project experience",
+          "url": "http://aweaewawe/wasd.com/weaa12343",
+          "likes": 15,
+          "createdAt": "Thu Jul 11 2022 11:21:26"
+        }, {
+          "version_name": "Remix",
+          "description": "this is a song I wrote for one of my memorable experience",
+          "url": "http://aweaewawe/wasd.com/weaa12343",
+          "likes": 12,
+          "createdAt": "Fri Aug 18 2022 11:21:26"
+        }]
+      },
+      users: [{
+        "username": "Lawrence",
+        "bio": "I am a singer from Italy, Please enjoy my music!",
+        "avatar": "https://robohash.org/uteteum.png?size=50x50&set=set1",
+        "category": ["pop", "r&b"],
+        "following": ["Dua Lipa", "Candace"],
+        "followedby": ["Kai"],
+        "memberof": ["Butterflies", "Ice ages"],
+        "uploads": [{
+          "musicName": "I like HR",
+          "version_history": [{
+            "version_name": "Original version",
+            "description": "this is a song I wrote for one of my memorable experience",
+            "url": "http://aweaewawe/wasd.com/weaa12343",
+            "likes": 12,
+            "createdAt": "Fri Aug 12 2022 11:21:26"
+          }, {
+            "version_name": "Remix 1",
+            "description": "this is a song I wrote for one of my memorable experience",
+            "url": "http://aweaewawe/wasd.com/weaa12343",
+            "likes": 12,
+            "createdAt": "Fri Aug 18 2022 11:21:26"
+          }]
+        }, {
+          "musicName": "Javascript is another jazz",
+          "version_history": [{
+            "version_name": "Official instrumental",
+            "description": "I got the inspiration from my FEC project experience",
+            "url": "http://aweaewawe/wasd.com/weaa12343",
+            "likes": 15,
+            "createdAt": "Thu Jul 11 2022 11:21:26"
+          }, {
+            "version_name": "Remix",
+            "description": "this is a song I wrote for one of my memorable experience",
+            "url": "http://aweaewawe/wasd.com/weaa12343",
+            "likes": 12,
+            "createdAt": "Fri Aug 18 2022 11:21:26"
+          }]
+        }],
+        "timeline": [{
+          "date": "Fri Aug 05 2020 11:21:26",
+          "action": "Joined in the community",
+          "involvedName": null
+        }, {
+          "date": "Fri Aug 03 2021 11:21:26",
+          "action": "Published a new song",
+          "involvedName": "Javascript is another jazz"
+        }, {
+          "date": "Fri Aug 05 2021 11:21:26",
+          "action": "Joined band",
+          "involvedName": "Ice ages"
+        }, {
+          "date": "Fri Nov 12 2021 11:21:26",
+          "action": "Published a new song",
+          "involvedName": "I like HR"
+        }, {
+          "date": "Fri Jul 12 2021 11:21:26",
+          "action": "Joined band",
+          "involvedName": "butterfly"
+        }]
+      }, {
+        "username": "Candace",
+        "bio": "I am a singer from China, Please enjoy my music!!",
+        "avatar": "https://robohash.org/quodmodiet.png?size=50x50&set=set1",
+        "category": ["Jazz", "K-Pop", "old school"],
+        "following": ["Dua Lipa"],
+        "followedby": ["Lawrence", "Kai"],
+        "memberof": ["Butterflies"],
+        "uploads": [{
+          "musicName": "Dynamite",
+          "version_history": [{
+            "version_name": "official soundtrack",
+            "description": "the feeling, the mood, the dynamite!",
+            "url": "http://aweaewawe/wasd.com/weaa22343",
+            "likes": 100,
+            "createdAt": "Fri Aug 10 2022 11:21:26"
+          }]
+        }, {
+          "musicName": "Life live living",
+          "version_history": [{
+            "version_name": "Soundtrack 0",
+            "description": "I wrote this for the ET i met last week.",
+            "url": "http://aweaewawe/wasd.com/weaa22344",
+            "likes": 7,
+            "createdAt": "Mon Jul 11 2022 11:21:26"
+          }]
+        }],
+        "timeline": [{
+          "date": "Fri Jul 12 2020 11:21:26",
+          "action": "Joined in the community",
+          "involvedName": null
+        }, {
+          "date": "Fri Dec 12 2020 11:21:26",
+          "action": "Published a new song",
+          "involvedName": "dynamite"
+        }, {
+          "date": "Fri Jul 12 2021 11:21:26",
+          "action": "Published a new song",
+          "involvedName": "Life live living"
+        }, {
+          "date": "Fri Jul 12 2021 11:21:26",
+          "action": "Joined band",
+          "involvedName": "butterfly"
+        }]
+      }, {
+        "username": "Kai",
+        "bio": "I don\’t care, I don\’t mind, I am myself!",
+        "avatar": "https://robohash.org/numquamnihilet.png?size=50x50&set=set1",
+        "category": ["old school", "pop music"],
+        "following": ["Dua Lipa", "Lawrence", "Candace"],
+        "followedby": ["Lawrence", "Kai"],
+        "memberof": ["Ice ages"],
+        "uploads": [{
+          "musicName": "randomSong",
+          "description": "whatever!",
+          "url": "http://aweaewawe/wasd.com/weaa25343",
+          "likes": 30,
+          "createdAt": "Fri Aug 10 2022 10:21:26"
+        }],
+        "timeline": [{
+          "date": "Fri Aug 10 2020 10:21:26",
+          "action": "Joined in the community",
+          "involvedName": null
+        }, {
+          "date": "Fri Aug 10 2022 10:21:26",
+          "action": "Published a new song",
+          "involvedName": "randomSong"
+        }, {
+          "date": "Fri Aug 05 2021 11:21:26",
+          "action": "Joined band",
+          "involvedName": "Ice ages"
+        }]
+      }]
+    };
     return _this;
   }
 
   _createClass(Homepage, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      var versionList = this.state.uploads.version_history.map(function (version) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_musicList_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          version: version
+        });
+      });
+      var usersList = this.state.users.map(function (user) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_usersList_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          user: user,
+          uploads: user.uploads
+        });
+      });
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "homepage-container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_navbar_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "homepage-usersphoto",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              src: "https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            className: "userBio",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
-              children: "Bio"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "homepage-usersList"
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_navbar_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            land: this.props.land,
+            user: this.props.user
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "homepage-userinfo-container",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+              className: "usersphoto",
+              src: "https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp",
+              alt: "profile"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+              className: "username-h4",
+              children: "Username"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              className: "userbio",
+              children: "This is my bio. I'm really good at writing and I'm here to show it. "
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "versionList",
+            children: usersList
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "versionList",
+            children: versionList
           })]
         })
       });
@@ -190,10 +391,10 @@ var Homepage = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./client/src/components/homepage/navbar.jsx":
-/*!***************************************************!*\
-  !*** ./client/src/components/homepage/navbar.jsx ***!
-  \***************************************************/
+/***/ "./client/src/components/homepage/musicList.jsx":
+/*!******************************************************!*\
+  !*** ./client/src/components/homepage/musicList.jsx ***!
+  \******************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -227,6 +428,122 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+var HPMusicList = /*#__PURE__*/function (_React$Component) {
+  _inherits(HPMusicList, _React$Component);
+
+  var _super = _createSuper(HPMusicList);
+
+  function HPMusicList(props) {
+    var _this;
+
+    _classCallCheck(this, HPMusicList);
+
+    _this = _super.call(this, props);
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(HPMusicList, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "versionItem",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "vItemTopRow",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "lineup",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "orangeText10",
+              children: "created:"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "basicGray",
+              children: this.props.version.createdAt
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("audio", {
+          controls: true,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("source", {
+            src: this.props.version.url
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "lineup",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "orangeText10",
+            children: "description:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "basicGray",
+            children: this.props.version.description
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "vItemBottomRow",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            className: "downloadButton",
+            children: "download"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "lineup",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "orangeText10",
+              children: "likes:"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "basicGray",
+              children: this.props.version.likes
+            })]
+          })]
+        })]
+      });
+    }
+  }]);
+
+  return HPMusicList;
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
+
+/* harmony default export */ __webpack_exports__["default"] = (HPMusicList);
+
+/***/ }),
+
+/***/ "./client/src/components/homepage/navbar.jsx":
+/*!***************************************************!*\
+  !*** ./client/src/components/homepage/navbar.jsx ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _landpagemodals_login_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../landpagemodals/login.jsx */ "./client/src/components/landpagemodals/login.jsx");
+/* harmony import */ var _landingpage_landingpage_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../landingpage/landingpage.jsx */ "./client/src/components/landingpage/landingpage.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
 var Navbar = /*#__PURE__*/function (_React$Component) {
   _inherits(Navbar, _React$Component);
 
@@ -238,14 +555,79 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Navbar);
 
     _this = _super.call(this, props);
-    _this.state = {};
+
+    _defineProperty(_assertThisInitialized(_this), "searchButton", function (e) {
+      alert('this doesn\'t work yet');
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "loginButton", function (e) {
+      // onClick => open a modal with username and password fields
+      _this.setState({
+        loginModal: true
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "exitModal", function (e) {
+      _this.setState({
+        loginModal: false
+      });
+    });
+
+    _this.state = {
+      loginModal: false,
+      username: null,
+      password: null,
+      userErr: false
+    };
     return _this;
   }
 
   _createClass(Navbar, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {});
+      if (this.props.user === 'Guest') {
+        var log = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          id: "logout",
+          onClick: this.loginButton,
+          children: "Login"
+        });
+      } else {
+        var log = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          id: "logout",
+          onClick: this.props.land,
+          children: "Logout"
+        });
+      }
+
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+          className: "navbar",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            id: "logo",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+              src: "https://res.cloudinary.com/dktim9rur/image/upload/v1660579940/Screen_Shot_2022-08-15_at_10.12.00_AM_ju6kt7.jpg",
+              alt: "logo"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            id: "search",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "text",
+              placeholder: "Username or Genre"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              onClick: this.searchButton,
+              children: "Search"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            id: "signedIn",
+            children: ["Signed in as ", this.props.user]
+          }), log]
+        }), this.state.loginModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_landpagemodals_login_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          loginVal: _landingpage_landingpage_jsx__WEBPACK_IMPORTED_MODULE_2__["default"].loginVal,
+          submit: _landingpage_landingpage_jsx__WEBPACK_IMPORTED_MODULE_2__["default"].loginSubmitButton,
+          exit: this.exitModal,
+          userErr: this.state.userErr
+        })]
+      });
     }
   }]);
 
@@ -253,6 +635,106 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
 }((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
 
 /* harmony default export */ __webpack_exports__["default"] = (Navbar);
+
+/***/ }),
+
+/***/ "./client/src/components/homepage/usersList.jsx":
+/*!******************************************************!*\
+  !*** ./client/src/components/homepage/usersList.jsx ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var HPUsersList = /*#__PURE__*/function (_React$Component) {
+  _inherits(HPUsersList, _React$Component);
+
+  var _super = _createSuper(HPUsersList);
+
+  function HPUsersList(props) {
+    var _this;
+
+    _classCallCheck(this, HPUsersList);
+
+    _this = _super.call(this, props);
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(HPUsersList, [{
+    key: "render",
+    value: function render() {
+      var userUploads = this.props.uploads.map(function (uploaded, i) {
+        return (
+          /*#__PURE__*/
+          // console.log(uploaded.musicName)
+          (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            children: uploaded.musicName
+          }, i)
+        );
+      });
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "homepage-userlist-div",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "username-photo",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            className: "usersList-photo",
+            src: this.props.user.avatar,
+            alt: "profile"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "hompage-userprojects-div",
+            children: this.props.user.username
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "homepage-userprojects-div",
+          children: userUploads
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "hompage-userprojects-div",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            className: "messageButton",
+            children: "Message"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            className: "requestButton",
+            children: "Request Collaboration"
+          })]
+        })]
+      });
+    }
+  }]);
+
+  return HPUsersList;
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
+
+/* harmony default export */ __webpack_exports__["default"] = (HPUsersList);
 
 /***/ }),
 
@@ -352,6 +834,10 @@ var Landing = /*#__PURE__*/function (_React$Component) {
       _this.setState({
         userErr: true
       });
+
+      _this.props.changeUser(user);
+
+      alert('user = ' + user);
     });
 
     _defineProperty(_assertThisInitialized(_this), "signUpButton", function (e) {
@@ -432,6 +918,8 @@ var Landing = /*#__PURE__*/function (_React$Component) {
           className: "landpage-buttons",
           children: "Continue as Guest"
         }), this.state.loginModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_landpagemodals_login_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          open: this.state.loginModal,
+          changeUser: this.props.changeUser,
           loginVal: this.loginVal,
           submit: this.loginSubmitButton,
           userErr: this.state.userErr,
@@ -501,7 +989,19 @@ var Login = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Login);
 
     _this = _super.call(this, props);
-    _this.state = {};
+    _this.state = {}; // document.addEventListener("click", () => {
+    //   var open = false;
+    //   if (event.target.className !== 'landpage-buttons') {
+    //     open = true;
+    //   }
+    //   console.log(open);
+    //   if (open === true && event.target.parentElement.className !== 'landingModalContainer') {
+    //     this.props.exit();
+    //   }
+    // },
+    // false
+    // )
+
     return _this;
   }
 
@@ -510,11 +1010,14 @@ var Login = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "landingModalBackground",
-        onClick: this.props.exit,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "landingModalContainer",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-            children: "Login"
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            id: "modalExit",
+            onClick: this.props.exit,
+            children: "X"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+            children: "Login "
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "text",
             placeholder: "Username",
@@ -603,10 +1106,13 @@ var Signup = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "landingModalBackground",
-        onClick: this.props.exit,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "landingModalContainer",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            id: "modalExit",
+            onClick: this.props.exit,
+            children: "X"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
             children: "Sign-Up"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
             children: "Please create a new username and password"
@@ -15240,7 +15746,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".app {\n  /* background-image: url('https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp'); */\n  /* margin: 0px;\n  padding: 0px;\n  width: 100vw;\n  height: 100vh;\n  background-size: cover;\n  min-height: 100%;\n  min-width: 1024px;\n  width: 100%;\n  height: auto;\n  position: fixed;\n  top: 0;\n  left: 0; */\n  /* background-size: cover;\n  width: 100%; */\n  /* height: 100%; */\n  /* top: 0;\n  left: 0; */\n  /* min-height: 100vh; */\n  /* min-width: 100vw; */\n  /* background-size:cover; */\n}\n\n.homePage {\n  background: white;\n}\n\n.mainLanding {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n}\n\n#weTitle {\n\n  color: aliceblue;\n  font-size: 150pt;\n  text-align: center;\n  font-family: cursive;\n}\n\n.landpage-buttons {\n  border: 0;\n  color: red;\n  font-size: 40px;\n  font-weight: bold;\n  background-color: rgba(0, 0, 0, 0);\n  text-align: center;\n}\n.landpage-buttons:hover {\n  color: blue;\n}\n\n.landingModalBackground {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  background-color: rgba(0, 0, 0, .5);\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n}\n\n.landingModalContainer {\n  width: 750px;\n  height: auto;\n  background-color: rgb(240, 245, 249);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  display: flex;\n  flex-direction: column;\n  padding: 25px;\n  border-radius: 4px;\n  position: absolute;\n  z-index: 1001;\n}\n\n.homepage-container {\n\n}\n\n.homepage-usersphoto {\n  width: 10vw;\n  height: 10vh;\n}\n\n.homepage-usersList {\n\n}", "",{"version":3,"sources":["webpack://./client/src/styles.css"],"names":[],"mappings":"AAAA;EACE,sHAAsH;EACtH;;;;;;;;;;;YAWU;EACV;gBACc;EACd,kBAAkB;EAClB;YACU;EACV,uBAAuB;EACvB,sBAAsB;EACtB,2BAA2B;AAC7B;;AAEA;EACE,iBAAiB;AACnB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,uBAAuB;EACvB,kBAAkB;AACpB;;AAEA;;EAEE,gBAAgB;EAChB,gBAAgB;EAChB,kBAAkB;EAClB,oBAAoB;AACtB;;AAEA;EACE,SAAS;EACT,UAAU;EACV,eAAe;EACf,iBAAiB;EACjB,kCAAkC;EAClC,kBAAkB;AACpB;AACA;EACE,WAAW;AACb;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,aAAa;EACb,mCAAmC;EACnC,uBAAuB;EACvB,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,YAAY;EACZ,YAAY;EACZ,oCAAoC;EACpC,4CAA4C;EAC5C,aAAa;EACb,sBAAsB;EACtB,aAAa;EACb,kBAAkB;EAClB,kBAAkB;EAClB,aAAa;AACf;;AAEA;;AAEA;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA;;AAEA","sourcesContent":[".app {\n  /* background-image: url('https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp'); */\n  /* margin: 0px;\n  padding: 0px;\n  width: 100vw;\n  height: 100vh;\n  background-size: cover;\n  min-height: 100%;\n  min-width: 1024px;\n  width: 100%;\n  height: auto;\n  position: fixed;\n  top: 0;\n  left: 0; */\n  /* background-size: cover;\n  width: 100%; */\n  /* height: 100%; */\n  /* top: 0;\n  left: 0; */\n  /* min-height: 100vh; */\n  /* min-width: 100vw; */\n  /* background-size:cover; */\n}\n\n.homePage {\n  background: white;\n}\n\n.mainLanding {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n}\n\n#weTitle {\n\n  color: aliceblue;\n  font-size: 150pt;\n  text-align: center;\n  font-family: cursive;\n}\n\n.landpage-buttons {\n  border: 0;\n  color: red;\n  font-size: 40px;\n  font-weight: bold;\n  background-color: rgba(0, 0, 0, 0);\n  text-align: center;\n}\n.landpage-buttons:hover {\n  color: blue;\n}\n\n.landingModalBackground {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  background-color: rgba(0, 0, 0, .5);\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n}\n\n.landingModalContainer {\n  width: 750px;\n  height: auto;\n  background-color: rgb(240, 245, 249);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  display: flex;\n  flex-direction: column;\n  padding: 25px;\n  border-radius: 4px;\n  position: absolute;\n  z-index: 1001;\n}\n\n.homepage-container {\n\n}\n\n.homepage-usersphoto {\n  width: 10vw;\n  height: 10vh;\n}\n\n.homepage-usersList {\n\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*==========Tag Styling==========*/\nbutton {\n  margin: 0vh 1vh 0vh 1vh;\n}\nimage {\n  max-width: 100%;\n}\ninput {\n  height: 20px;\n}\n/*==========Nav Bar==========*/\n.navbar {\n  background-image: url('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg');\n  background-size: cover;\n  max-height: 6vh;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 1vh;\n  z-index: 1000;\n}\n#logo {\n  opacity: .5;\n  display: flex;\n  max-height: fit-content;\n  max-width: 10vw;\n  margin: 2px;\n  border-radius: 5px;\n  margin: 0;\n  align-content: center;\n  justify-content: center;\n}\n#logout {\n  margin-top: 1vh;\n  max-height: 20px;\n}\n#search{\n  margin-top: 1vh;\n}\n#signedIn{\n  margin-top: 1vh;\n  color: white;\n}\n#modalExit {\n  width: fit-content;\n}\n/*==========Landing Page==========*/\n.mainLanding {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n}\n#weTitle {\n  color: aliceblue;\n  font-size: 150pt;\n  text-align: center;\n  font-family: cursive;\n}\n.landpage-buttons {\n  border: 0;\n  color: red;\n  font-size: 40px;\n  font-weight: bold;\n  background-color: rgba(0, 0, 0, 0);\n  text-align: center;\n}\n.landpage-buttons:hover {\n  color: blue;\n  transition-duration: 1s;\n}\n\n.landingModalBackground {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  background-color: rgba(0, 0, 0, .5);\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n}\n\n.landingModalContainer {\n  width: 750px;\n  height: auto;\n  background-color: rgb(240, 245, 249);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  display: flex;\n  flex-direction: column;\n  padding: 25px;\n  border-radius: 4px;\n  position: absolute;\n  z-index: 1001;\n}\n\n/*==========homepage==========*/\n.homePage {\n  background: white;\n}\n.homepage-userinfo-container {\n  display: flex;\n  flex-direction: column;\n  background-color: rgb(91, 91, 91);\n  max-width: 20vw;\n  max-height: fit-content;\n  border-radius: 5px;\n  margin: 10px;\n  align-content: center;\n  justify-content: center;\n}\n\n.usersphoto {\n  max-height: 90%;\n  max-width: 90%;\n  margin: 10px auto;\n}\n\n.userbio {\n  margin: 0 auto;\n  margin-bottom: 10px;\n  max-width: 90%;\n  text-align: justify;\n  color: rgb(255, 115, 0);\n}\n\n.username-h4 {\n margin: 0 auto;\n margin-top: 10px;\n margin-bottom: 10px;\n max-width: 90%;\n color: rgb(255, 115, 0);\n}\n\n.homepage-usersList-container {\n  display: flex;\n  flex-direction: column;\n  background-color: white;\n  max-width: 40vw;\n  max-height: fit-content;\n  border-radius: 5px;\n  margin: 10px;\n  align-content: center;\n  justify-content: center;\n}\n\n.usersList-photo {\n  max-height: 90%;\n  max-width: 90%;\n  margin: 10px;\n}\n\n.usersList-orderedList {\n  display: flex;\n  margin: 10px auto;\n  flex-direction: row;\n  /* margin-bottom: 10px;\n  max-width: 90%;\n  text-align: justify; */\n}\n\n.homepage-musicList-container {\n  display: flex;\n  flex-direction: column;\n  background-color: white;\n  max-width: 40vw;\n  max-height: fit-content;\n  border-radius: 5px;\n  margin: 10px;\n  align-content: center;\n  justify-content: center;\n}\n\n.homepage-musicList-div {\n  display: flex;\n  flex-direction: column;\n  background-color: rgb(95, 95, 95);\n  max-width: 40vw;\n  max-height: fit-content;\n  border-radius: 5px;\n  margin: 10px;\n  align-content: center;\n  justify-content: center;\n}\n\n.musicList-orderedList {\n  display: flex;\n  margin: 0 auto;\n  padding-left: 0px;\n  flex-direction: row;\n}\n\n/*==========HPMusicList==========*/\n\n/*----------------------------------------  MAIN  -------------------------------------------------*/\n\n.versionControl {\n  border-style: solid;\n  border-color: black;\n  background-color:  rgb(46, 46, 46);\n  height: 40em;\n  width: 75%;\n  display: flex;\n  border-radius: 5px;\n}\n\n\n.vCModalBackground {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  background-color: black;\n  justify-content: center;\n  align-items: center;\n  padding-right: 420px;\n  padding-bottom: 270px;\n  position: absolute;\n}\n\n.vCModalContainer {\n  width: 750px;\n  height: auto;\n  background-color: rgb(46, 46, 46);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  display: flex;\n  flex-direction: column;\n  padding: 25px;\n  border-radius: 4px;\n  position: absolute;\n  z-index: 1001;\n}\n\n.vItemTopRow {\n  display: flex;\n  justify-content: space-between;\n}\n\n.vItemBottomRow {\n  display: flex;\n  justify-content: space-between;\n}\n\n.username-photo {\n  display: flex;\n  flex-direction: column;\n  /* justify-content: center; */\n  /* align-content: center; */\n  max-width: 10vw;\n  max-height: 20vh;\n  margin: 0;\n}\n\n/*------------------------------------------  VERSION LIST  ------------------------------------------*/\n\n.versionList {\n  padding: 25px;\n}\n\n.versionItem {\n  width: auto;\n  height: auto;\n  padding: 10px;\n  max-width: 40%;\n  /* border-style: solid; */\n  /* border-color: black; */\n  background-color: rgb(91, 91, 91);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  border-radius: 10px;\n  margin: 10px;\n}\n\n.homepage-userlist-div {\n  display: flex;\n  width: auto;\n  height: auto;\n  padding: 10px;\n  max-width: 40%;\n  /* border-style: solid; */\n  /* border-color: black; */\n  /* flex-direction: row; */\n  justify-content: space-between;\n  background-color: rgb(91, 91, 91);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  border-radius: 10px;\n  margin: 10px;\n}\n\n\n/*------------------------------------------  UPLOAD MODALS -----------------------------------------*/\n\n\n.uploadModalBackground {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  background-color: black;\n  justify-content: center;\n  align-items: center;\n  padding-right: 420px;\n  padding-bottom: 270px;\n  position: absolute;\n}\n\n.uploadModalContainer {\n  width: 600px;\n  height: auto;\n  background-color: rgb(91, 91, 91);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  display: flex;\n  flex-direction: column;\n  padding: 25px;\n  border-radius: 4px;\n  position: absolute;\n  z-index: 1002;\n}\n\n.modalTopRow {\n  display: flex;\n  justify-content: space-between;\n}\n\n/*-------------------------------------------  BUTTONS  ---------------------------------------------*/\n.uploadButton {\n  background-color: rgb(91, 91, 91);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  padding: 10px;\n  border-width: 0;\n  border-radius: 15px;\n  color: rgb(255, 115, 0);\n  font-weight: bold;\n}\n\n.downloadButton {\n  background-color:rgb(131, 131, 131);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  padding: 5px;\n  border-width: 0;\n  border-radius: 8px;\n  font-size: 8pt;\n  color: rgb(255, 115, 0);\n  font-weight: bold;\n}\n\n.messageButton {\n  background-color:rgb(131, 131, 131);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  padding: 5px;\n  border-width: 0;\n  border-radius: 8px;\n  font-size: 8pt;\n  color: rgb(255, 115, 0);\n  font-weight: bold;\n}\n\n.requestButton {\n  background-color:rgb(131, 131, 131);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  padding: 5px;\n  border-width: 0;\n  border-radius: 8px;\n  font-size: 8pt;\n  color: rgb(255, 115, 0);\n  font-weight: bold;\n}\n\n\n/*--------------------------------------------  TEXT  -----------------------------------------------*/\n\n.orangeText24 {\n  color: rgb(255, 115, 0);\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  font-size: 24pt;\n  font-weight: bold;\n  padding-bottom: 5px;\n}\n\n.orangeText10 {\n  color: rgb(255, 115, 0);\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  font-size: 10pt;\n  font-weight: bold;\n  padding-right: 5px;\n  padding-top: 2px;\n  padding-bottom: 5px;\n}\n\n.lineup {\n  display: flex;\n}\n\n.basicGray {\n  color:rgb(183, 183, 183);\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n}\n\n.hompage-userprojects-div {\n  color: rgb(255, 115, 0);\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  font-size: 10pt;\n  font-weight: bold;\n  padding-right: 5px;\n  padding-top: 2px;\n  padding-bottom: 5px;\n  max-height: 30px;\n  text-align: center;\n}", "",{"version":3,"sources":["webpack://./client/src/styles.css"],"names":[],"mappings":"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","sourcesContent":["/*==========Tag Styling==========*/\nbutton {\n  margin: 0vh 1vh 0vh 1vh;\n}\nimage {\n  max-width: 100%;\n}\ninput {\n  height: 20px;\n}\n/*==========Nav Bar==========*/\n.navbar {\n  background-image: url('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg');\n  background-size: cover;\n  max-height: 6vh;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 1vh;\n  z-index: 1000;\n}\n#logo {\n  opacity: .5;\n  display: flex;\n  max-height: fit-content;\n  max-width: 10vw;\n  margin: 2px;\n  border-radius: 5px;\n  margin: 0;\n  align-content: center;\n  justify-content: center;\n}\n#logout {\n  margin-top: 1vh;\n  max-height: 20px;\n}\n#search{\n  margin-top: 1vh;\n}\n#signedIn{\n  margin-top: 1vh;\n  color: white;\n}\n#modalExit {\n  width: fit-content;\n}\n/*==========Landing Page==========*/\n.mainLanding {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n}\n#weTitle {\n  color: aliceblue;\n  font-size: 150pt;\n  text-align: center;\n  font-family: cursive;\n}\n.landpage-buttons {\n  border: 0;\n  color: red;\n  font-size: 40px;\n  font-weight: bold;\n  background-color: rgba(0, 0, 0, 0);\n  text-align: center;\n}\n.landpage-buttons:hover {\n  color: blue;\n  transition-duration: 1s;\n}\n\n.landingModalBackground {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  background-color: rgba(0, 0, 0, .5);\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n}\n\n.landingModalContainer {\n  width: 750px;\n  height: auto;\n  background-color: rgb(240, 245, 249);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  display: flex;\n  flex-direction: column;\n  padding: 25px;\n  border-radius: 4px;\n  position: absolute;\n  z-index: 1001;\n}\n\n/*==========homepage==========*/\n.homePage {\n  background: white;\n}\n.homepage-userinfo-container {\n  display: flex;\n  flex-direction: column;\n  background-color: rgb(91, 91, 91);\n  max-width: 20vw;\n  max-height: fit-content;\n  border-radius: 5px;\n  margin: 10px;\n  align-content: center;\n  justify-content: center;\n}\n\n.usersphoto {\n  max-height: 90%;\n  max-width: 90%;\n  margin: 10px auto;\n}\n\n.userbio {\n  margin: 0 auto;\n  margin-bottom: 10px;\n  max-width: 90%;\n  text-align: justify;\n  color: rgb(255, 115, 0);\n}\n\n.username-h4 {\n margin: 0 auto;\n margin-top: 10px;\n margin-bottom: 10px;\n max-width: 90%;\n color: rgb(255, 115, 0);\n}\n\n.homepage-usersList-container {\n  display: flex;\n  flex-direction: column;\n  background-color: white;\n  max-width: 40vw;\n  max-height: fit-content;\n  border-radius: 5px;\n  margin: 10px;\n  align-content: center;\n  justify-content: center;\n}\n\n.usersList-photo {\n  max-height: 90%;\n  max-width: 90%;\n  margin: 10px;\n}\n\n.usersList-orderedList {\n  display: flex;\n  margin: 10px auto;\n  flex-direction: row;\n  /* margin-bottom: 10px;\n  max-width: 90%;\n  text-align: justify; */\n}\n\n.homepage-musicList-container {\n  display: flex;\n  flex-direction: column;\n  background-color: white;\n  max-width: 40vw;\n  max-height: fit-content;\n  border-radius: 5px;\n  margin: 10px;\n  align-content: center;\n  justify-content: center;\n}\n\n.homepage-musicList-div {\n  display: flex;\n  flex-direction: column;\n  background-color: rgb(95, 95, 95);\n  max-width: 40vw;\n  max-height: fit-content;\n  border-radius: 5px;\n  margin: 10px;\n  align-content: center;\n  justify-content: center;\n}\n\n.musicList-orderedList {\n  display: flex;\n  margin: 0 auto;\n  padding-left: 0px;\n  flex-direction: row;\n}\n\n/*==========HPMusicList==========*/\n\n/*----------------------------------------  MAIN  -------------------------------------------------*/\n\n.versionControl {\n  border-style: solid;\n  border-color: black;\n  background-color:  rgb(46, 46, 46);\n  height: 40em;\n  width: 75%;\n  display: flex;\n  border-radius: 5px;\n}\n\n\n.vCModalBackground {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  background-color: black;\n  justify-content: center;\n  align-items: center;\n  padding-right: 420px;\n  padding-bottom: 270px;\n  position: absolute;\n}\n\n.vCModalContainer {\n  width: 750px;\n  height: auto;\n  background-color: rgb(46, 46, 46);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  display: flex;\n  flex-direction: column;\n  padding: 25px;\n  border-radius: 4px;\n  position: absolute;\n  z-index: 1001;\n}\n\n.vItemTopRow {\n  display: flex;\n  justify-content: space-between;\n}\n\n.vItemBottomRow {\n  display: flex;\n  justify-content: space-between;\n}\n\n.username-photo {\n  display: flex;\n  flex-direction: column;\n  /* justify-content: center; */\n  /* align-content: center; */\n  max-width: 10vw;\n  max-height: 20vh;\n  margin: 0;\n}\n\n/*------------------------------------------  VERSION LIST  ------------------------------------------*/\n\n.versionList {\n  padding: 25px;\n}\n\n.versionItem {\n  width: auto;\n  height: auto;\n  padding: 10px;\n  max-width: 40%;\n  /* border-style: solid; */\n  /* border-color: black; */\n  background-color: rgb(91, 91, 91);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  border-radius: 10px;\n  margin: 10px;\n}\n\n.homepage-userlist-div {\n  display: flex;\n  width: auto;\n  height: auto;\n  padding: 10px;\n  max-width: 40%;\n  /* border-style: solid; */\n  /* border-color: black; */\n  /* flex-direction: row; */\n  justify-content: space-between;\n  background-color: rgb(91, 91, 91);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  border-radius: 10px;\n  margin: 10px;\n}\n\n\n/*------------------------------------------  UPLOAD MODALS -----------------------------------------*/\n\n\n.uploadModalBackground {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  background-color: black;\n  justify-content: center;\n  align-items: center;\n  padding-right: 420px;\n  padding-bottom: 270px;\n  position: absolute;\n}\n\n.uploadModalContainer {\n  width: 600px;\n  height: auto;\n  background-color: rgb(91, 91, 91);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  display: flex;\n  flex-direction: column;\n  padding: 25px;\n  border-radius: 4px;\n  position: absolute;\n  z-index: 1002;\n}\n\n.modalTopRow {\n  display: flex;\n  justify-content: space-between;\n}\n\n/*-------------------------------------------  BUTTONS  ---------------------------------------------*/\n.uploadButton {\n  background-color: rgb(91, 91, 91);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  padding: 10px;\n  border-width: 0;\n  border-radius: 15px;\n  color: rgb(255, 115, 0);\n  font-weight: bold;\n}\n\n.downloadButton {\n  background-color:rgb(131, 131, 131);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  padding: 5px;\n  border-width: 0;\n  border-radius: 8px;\n  font-size: 8pt;\n  color: rgb(255, 115, 0);\n  font-weight: bold;\n}\n\n.messageButton {\n  background-color:rgb(131, 131, 131);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  padding: 5px;\n  border-width: 0;\n  border-radius: 8px;\n  font-size: 8pt;\n  color: rgb(255, 115, 0);\n  font-weight: bold;\n}\n\n.requestButton {\n  background-color:rgb(131, 131, 131);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  padding: 5px;\n  border-width: 0;\n  border-radius: 8px;\n  font-size: 8pt;\n  color: rgb(255, 115, 0);\n  font-weight: bold;\n}\n\n\n/*--------------------------------------------  TEXT  -----------------------------------------------*/\n\n.orangeText24 {\n  color: rgb(255, 115, 0);\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  font-size: 24pt;\n  font-weight: bold;\n  padding-bottom: 5px;\n}\n\n.orangeText10 {\n  color: rgb(255, 115, 0);\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  font-size: 10pt;\n  font-weight: bold;\n  padding-right: 5px;\n  padding-top: 2px;\n  padding-bottom: 5px;\n}\n\n.lineup {\n  display: flex;\n}\n\n.basicGray {\n  color:rgb(183, 183, 183);\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n}\n\n.hompage-userprojects-div {\n  color: rgb(255, 115, 0);\n  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;\n  font-size: 10pt;\n  font-weight: bold;\n  padding-right: 5px;\n  padding-top: 2px;\n  padding-bottom: 5px;\n  max-height: 30px;\n  text-align: center;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
