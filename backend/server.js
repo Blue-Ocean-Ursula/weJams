@@ -28,6 +28,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 app.use(cors({
   origin: "http://localhost:3000",
   credentials: true,
@@ -67,8 +68,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
 port = process.env.PORT || 3005
+
 app.listen(port, function () {
   console.log(`app listening on port ${port}!`);
  });
