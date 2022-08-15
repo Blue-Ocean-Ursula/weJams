@@ -3,7 +3,7 @@ const axios = require('axios');
 const {fakeAuths, fakeBands, fakeChats, fakeUsers} = require('./fakeData.js')
 const {JamsAuth, JamsUser, JamsBand, JamsChat} = require('./schema.js');
 
-mongoose.connect(`mongodb+srv://wguab:GYupUKr5IdQHfU5T@blueocean.5pe6ny1.mongodb.net/?retryWrites=true&w=majority`, {
+mongoose.connect(`mongodb+srv://<username>:<your key>@blueocean.5pe6ny1.mongodb.net/?retryWrites=true&w=majority`, {
   useNewUrlParser:true,
   useUnifiedTopology: true,
 },
