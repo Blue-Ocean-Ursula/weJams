@@ -56,12 +56,11 @@ router.post('/register', async (req, res) => {
   }
 })
 
+
 router.get('/getUser', async (req, res) => {
-  console.log(req.user.username)
   if (req.user) {
     try {
       const userInfo = await JamsUser.findOne({username: req.user.username})
-      console.log('userInfo is ', userInfo)
       res.status(200).send(userInfo)
     }
     catch(err) {
@@ -71,8 +70,24 @@ router.get('/getUser', async (req, res) => {
   } else {
     res.status(200).send('please log in first')
   }
+})
 
-
+router.put('/editUser', async (req, res) => {
+  if (req.user) {
+    try {
+      const userInfo = await JamsUser.findOneAndUpdate({username: req.user.username}, req.body.newUser, {
+        new: true,
+        upsert: true,
+      })
+      res.status(200).send(userInfo)
+    }
+    catch(err) {
+      console.log(err)
+      res.status(404).send(err)
+    }
+  } else {
+    res.status(200).send('please log in first')
+  }
 })
 
 
