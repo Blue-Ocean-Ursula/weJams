@@ -7,3 +7,40 @@
   display: flex;
   border-radius: 5px;
 }
+
+.vCModalBackground {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  padding-right: 420px;
+  padding-bottom: 270px;
+  position: absolute;
+}
+
+.vCModalContainer {
+  width: 750px;
+  height: auto;
+  background-color: rgb(240, 245, 249);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1001;
+}
+
+.versionList {
+  padding: 25px;
+}
+
+.versionItem {
+  width: auto;
+  height: auto;
+  padding: 25px;
+  border-style: solid;
+  border-color: black;
+}

@@ -1,57 +1,87 @@
 import React from 'react';
 import "./vC.css";
+import VersionItem from "./VersionItem.jsx";
 
 class VersionControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       uploadModal: false,
-    }
-  }
-
-
-  //this component shows the current project and a list of the edits(history)
-  //it will also display the information attached to each project and edit
-
-
-  //put req to db with new audio upload
-  //function that will allow user to upload version
-  handleUpload = () => {
-    if (this.state.uploadModal === false) {
-      this.setState({
-        uploadModal: true
-      })
-    } else {
-      this.setState({
-        uploadModal: false
-      })
-    }
-    //TODO:
-    //axios post request to database with info for current edit
+      uploads: {"musicName": "Javascript is another jazz",
+                "version_history": [
+                   {
+                     "version_name": "Official instrumental",
+                     "description": "I got the inspiration from my FEC project experience",
+                     "url": "http://aweaewawe/wasd.com/weaa12343",
+                     "likes": 15,
+                     "createdAt": "Thu Jul 11 2022 11:21:26",
+                   },
+                   {
+                     "version_name": "Remix",
+                     "description": "this is a song I wrote for one of my memorable experience",
+                     "url": "http://aweaewawe/wasd.com/weaa12343",
+                     "likes": 12,
+                     "createdAt": "Fri Aug 18 2022 11:21:26",
+                   }
+                ]
+              }
 
   }
+}
 
-  //function that will allow user to down load version each individual version
-  handleDownload = () => {
-    //TODO:
-    //hanlde down load for each individual edit
+
+//this component shows the current project and a list of the edits(history)
+//it will also display the information attached to each project and edit
+
+
+//put req to db with new audio upload
+//function that will allow user to upload version
+handleUpload = () => {
+  if (this.state.uploadModal === false) {
+    this.setState({
+      uploadModal: true
+    })
+  } else {
+    this.setState({
+      uploadModal: false
+    })
   }
+  //TODO:
+  //axios post request to database with info for current edit
+
+}
+
+//function that will allow user to down load version each individual version
+handleDownload = () => {
+  //TODO:
+  //hanlde down load for each individual edit
+}
 
 
-  render() {
-    return (
-      <>
-        <div className="versionControl">
-          <div>Version Control</div>
+render() {
+  const versionList = this.state.uploads.version_history.map((version) => (
+    <VersionItem version={version} />
+  ));
+
+  return (
+    <>
+      <div className="versionControl" className="vCModalBackground">
+        <div className="vCModalContainer">
+          <div>
+            Version Control
+          </div>
           {/* display component that lists the different versions of the project */}
+          {/* render list here */}
+          <div className="versionList" >{versionList}</div>
           <div>
             <button>download</button>
             <button onClick={this.handleUpload}>upload new version</button>
           </div>
         </div>
-      </>
-    )
-  }
+      </div>
+    </>
+  )
+}
 }
 
 export default VersionControl;
@@ -174,3 +204,24 @@ export default VersionControl;
 
 //     }
 //   ]
+
+
+// {
+//   "musicName": "Javascript is another jazz",
+//     "version_history": [
+//       {
+//         "version_name": "Official instrumental"
+//       "description": "I got the inspiration from my FEC project experience",
+//         "url: "http://aweaewawe/wasd.com/weaa12343",
+//         likes: 15,
+//         "createdAt": "Thu Jul 11 2022 11:21:26",
+//       },
+//       {
+//         "version_name": "Remix"
+//       "description": "this is a song I wrote for one of my memorable experience",
+//         "url: "http://aweaewawe/wasd.com/weaa12343",
+//         likes: 12,
+//         "createdAt": "Fri Aug 18 2022 11:21:26",
+//       }
+//     ]
+// }

@@ -84,7 +84,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _vC_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./vC.css */ "./client/src/components/VersionControl/vC.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _VersionItem_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./VersionItem.jsx */ "./client/src/components/VersionControl/VersionItem.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -108,6 +109,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -146,7 +148,23 @@ var VersionControl = /*#__PURE__*/function (_React$Component) {
     });
 
     _this.state = {
-      uploadModal: false
+      uploadModal: false,
+      uploads: {
+        "musicName": "Javascript is another jazz",
+        "version_history": [{
+          "version_name": "Official instrumental",
+          "description": "I got the inspiration from my FEC project experience",
+          "url": "http://aweaewawe/wasd.com/weaa12343",
+          "likes": 15,
+          "createdAt": "Thu Jul 11 2022 11:21:26"
+        }, {
+          "version_name": "Remix",
+          "description": "this is a song I wrote for one of my memorable experience",
+          "url": "http://aweaewawe/wasd.com/weaa12343",
+          "likes": 12,
+          "createdAt": "Fri Aug 18 2022 11:21:26"
+        }]
+      }
     };
     return _this;
   } //this component shows the current project and a list of the edits(history)
@@ -158,20 +176,32 @@ var VersionControl = /*#__PURE__*/function (_React$Component) {
   _createClass(VersionControl, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "versionControl",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      var _jsx2;
+
+      var versionList = this.state.uploads.version_history.map(function (version) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_VersionItem_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          version: version
+        });
+      });
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", (_jsx2 = {
+          className: "versionControl"
+        }, _defineProperty(_jsx2, "className", "vCModalBackground"), _defineProperty(_jsx2, "children", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "vCModalContainer",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             children: "Version Control"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "versionList",
+            children: versionList
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               children: "download"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               onClick: this.handleUpload,
               children: "upload new version"
             })]
           })]
-        })
+        })), _jsx2))
       });
     }
   }]);
@@ -289,6 +319,94 @@ var VersionControl = /*#__PURE__*/function (_React$Component) {
 //         { "date": "Fri Aug 05 2021 11:21:26", "action": "Joined band", "involvedName": "Ice ages" }]
 //     }
 //   ]
+// {
+//   "musicName": "Javascript is another jazz",
+//     "version_history": [
+//       {
+//         "version_name": "Official instrumental"
+//       "description": "I got the inspiration from my FEC project experience",
+//         "url: "http://aweaewawe/wasd.com/weaa12343",
+//         likes: 15,
+//         "createdAt": "Thu Jul 11 2022 11:21:26",
+//       },
+//       {
+//         "version_name": "Remix"
+//       "description": "this is a song I wrote for one of my memorable experience",
+//         "url: "http://aweaewawe/wasd.com/weaa12343",
+//         likes: 12,
+//         "createdAt": "Fri Aug 18 2022 11:21:26",
+//       }
+//     ]
+// }
+
+/***/ }),
+
+/***/ "./client/src/components/VersionControl/VersionItem.jsx":
+/*!**************************************************************!*\
+  !*** ./client/src/components/VersionControl/VersionItem.jsx ***!
+  \**************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var VersionItem = /*#__PURE__*/function (_React$Component) {
+  _inherits(VersionItem, _React$Component);
+
+  var _super = _createSuper(VersionItem);
+
+  function VersionItem(props) {
+    var _this;
+
+    _classCallCheck(this, VersionItem);
+
+    _this = _super.call(this, props);
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(VersionItem, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "versionItem",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: "version item"
+        })
+      });
+    }
+  }]);
+
+  return VersionItem;
+}((react__WEBPACK_IMPORTED_MODULE_0___default().Component));
+
+/* harmony default export */ __webpack_exports__["default"] = (VersionItem);
 
 /***/ }),
 
@@ -10226,7 +10344,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".versionControl {\n  border-style: solid;\n  border-color: black;\n  background-color:  rgb(46, 46, 46);\n  height: 40em;\n  width: 75%;\n  display: flex;\n  border-radius: 5px;\n}", "",{"version":3,"sources":["webpack://./client/src/components/VersionControl/vC.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,mBAAmB;EACnB,kCAAkC;EAClC,YAAY;EACZ,UAAU;EACV,aAAa;EACb,kBAAkB;AACpB","sourcesContent":[".versionControl {\n  border-style: solid;\n  border-color: black;\n  background-color:  rgb(46, 46, 46);\n  height: 40em;\n  width: 75%;\n  display: flex;\n  border-radius: 5px;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".versionControl {\n  border-style: solid;\n  border-color: black;\n  background-color:  rgb(46, 46, 46);\n  height: 40em;\n  width: 75%;\n  display: flex;\n  border-radius: 5px;\n}\n\n.vCModalBackground {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  background-color: black;\n  justify-content: center;\n  align-items: center;\n  padding-right: 420px;\n  padding-bottom: 270px;\n  position: absolute;\n}\n\n.vCModalContainer {\n  width: 750px;\n  height: auto;\n  background-color: rgb(240, 245, 249);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  display: flex;\n  flex-direction: column;\n  padding: 25px;\n  border-radius: 4px;\n  position: absolute;\n  z-index: 1001;\n}\n\n.versionList {\n  padding: 25px;\n}\n\n.versionItem {\n  width: auto;\n  height: auto;\n  padding: 25px;\n  border-style: solid;\n  border-color: black;\n}", "",{"version":3,"sources":["webpack://./client/src/components/VersionControl/vC.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,mBAAmB;EACnB,kCAAkC;EAClC,YAAY;EACZ,UAAU;EACV,aAAa;EACb,kBAAkB;AACpB;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,aAAa;EACb,uBAAuB;EACvB,uBAAuB;EACvB,mBAAmB;EACnB,oBAAoB;EACpB,qBAAqB;EACrB,kBAAkB;AACpB;;AAEA;EACE,YAAY;EACZ,YAAY;EACZ,oCAAoC;EACpC,4CAA4C;EAC5C,aAAa;EACb,sBAAsB;EACtB,aAAa;EACb,kBAAkB;EAClB,kBAAkB;EAClB,aAAa;AACf;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,aAAa;EACb,mBAAmB;EACnB,mBAAmB;AACrB","sourcesContent":[".versionControl {\n  border-style: solid;\n  border-color: black;\n  background-color:  rgb(46, 46, 46);\n  height: 40em;\n  width: 75%;\n  display: flex;\n  border-radius: 5px;\n}\n\n.vCModalBackground {\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  background-color: black;\n  justify-content: center;\n  align-items: center;\n  padding-right: 420px;\n  padding-bottom: 270px;\n  position: absolute;\n}\n\n.vCModalContainer {\n  width: 750px;\n  height: auto;\n  background-color: rgb(240, 245, 249);\n  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n  display: flex;\n  flex-direction: column;\n  padding: 25px;\n  border-radius: 4px;\n  position: absolute;\n  z-index: 1001;\n}\n\n.versionList {\n  padding: 25px;\n}\n\n.versionItem {\n  width: auto;\n  height: auto;\n  padding: 25px;\n  border-style: solid;\n  border-color: black;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
