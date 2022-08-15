@@ -698,6 +698,7 @@ var HPUsersList = /*#__PURE__*/function (_React$Component) {
           /*#__PURE__*/
           // console.log(uploaded.musicName)
           (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            className: "hompage-userprojects-div",
             children: uploaded.musicName
           }, i)
         );

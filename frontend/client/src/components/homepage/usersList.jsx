@@ -11,7 +11,7 @@ class HPUsersList extends React.Component {
   render() {
     const userUploads = this.props.uploads.map((uploaded, i) => (
       // console.log(uploaded.musicName)
-      <p key={i}>{uploaded.musicName}</p>
+      <p className="hompage-userprojects-div" key={i}>{uploaded.musicName}</p>
   ));
     return (
       <div className="homepage-userlist-div">
