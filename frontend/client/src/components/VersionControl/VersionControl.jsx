@@ -8,6 +8,7 @@ class VersionControl extends React.Component {
     super(props);
     this.state = {
       uploadModal: false,
+      username: "Lawrence",
       uploads: {"musicName": "Javascript is another jazz",
                 "version_history": [
                    {
@@ -66,7 +67,7 @@ render() {
 
   return (
     <>
-      {this.state.uploadModal && <UploadModal close={this.handleUpload}/>}
+      {this.state.uploadModal && <UploadModal close={this.handleUpload} info={this.state.uploads} username={this.state.username}/>}
       <div className="versionControl" className="vCModalBackground">
         <div className="vCModalContainer">
           <div className="orangeText24">

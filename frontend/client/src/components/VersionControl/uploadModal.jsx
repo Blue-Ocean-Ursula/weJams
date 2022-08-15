@@ -4,8 +4,18 @@ class UploadModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      name: '',
+      description: '',
+      url: ''
     }
+  }
+
+  //for submission will send post request to the users versions
+  //function send post req and closes modal window
+  handleSubmit = () => {
+    //post req to server:
+
+    this.props.close();
   }
 
   render() {
@@ -16,31 +26,29 @@ class UploadModal extends React.Component {
             <div>
               Upload Modal
             </div>
-            <button onClick={this.props.close}>
+            <button className="modalCloseButton" onClick={this.props.close}>
               x
             </button>
           </div>
-
-          <div>
-            version name
+          <div className="orangeText10">
             <form>
-              <input></input>
+              <input className="forms" onChange={(e)=>{this.setState({name: e.target.value})}}></input>
             </form>
+              version name
           </div>
-          <div>
+          <div className="orangeText10">
+            <form>
+              <input className="forms" onChange={(e)=>{this.setState({description: e.target.value})}}></input>
+            </form>
             description
-            <form>
-              <input></input>
-            </form>
           </div>
-          <div>
+          <div className="orangeText10">
+            <form>
+              <input className="forms" onChange={(e)=>{this.setState({url: e.target.value})}}></input>
+            </form>
             url
-            <form>
-              <input></input>
-            </form>
           </div>
-
-          <button>submit</button>
+          <button className="modalSubmitButton" onClick={this.handleSubmit}>submit version</button>
         </div>
       </div>
     )
