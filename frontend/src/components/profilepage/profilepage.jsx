@@ -8,7 +8,7 @@ import { BioContainer,
   BioBtnWrapper,
   ArrowForward,
   ArrowRight,
-} from './bioSection/bioElements.jsx';
+} from './profilePageElements.jsx';
 import ConcertBackground from './profileResources/ConcertBackground.mp4';
 import Button from './buttonComponent.jsx';
 
@@ -37,9 +37,19 @@ const ProfilePage = () => {
           onMouseLeave={onHover}
           primary="true"
           dark="true"
-
           >
             Direct Message {hover ? <ArrowForward /> : <ArrowRight />}
+          </Button>
+        </BioBtnWrapper>
+        <BioBtnWrapper>
+          <Button
+          to='Request to Collaborate'
+          onMouseEnter={onHover}
+          onMouseLeave={onHover}
+          primary="true"
+          dark="true"
+          >
+            Request to Collaborate {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
         </BioBtnWrapper>
       </BioContent>
