@@ -10,6 +10,9 @@
 
 # production
 /build
+/client/bundle.js
+bundle.js.map
+/client/dist/bundle.js.map
 
 # misc
 .DS_Store
