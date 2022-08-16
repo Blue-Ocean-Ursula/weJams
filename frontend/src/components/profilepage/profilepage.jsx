@@ -30,11 +30,18 @@ const ProfilePage = () => {
         <BioP>
         I am a singer from Italy, Please enjoy my music! !
         </BioP>
-        {/*<BioBtnWrapper>
-          <Button to='signup' onMouseEnter={onHover} onMouseLeave={onHover} >
+        <BioBtnWrapper>
+          <Button
+          to='Direct Message'
+          onMouseEnter={onHover}
+          onMouseLeave={onHover}
+          primary="true"
+          dark="true"
+
+          >
             Direct Message {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
-  </BioBtnWrapper>*/}
+        </BioBtnWrapper>
       </BioContent>
     </BioContainer>
   )
