@@ -30,23 +30,29 @@ class UploadModal extends React.Component {
               x
             </button>
           </div>
-          <div className="orangeText10">
+          <div >
             <form>
               <input className="forms" onChange={(e) => { this.setState({ name: e.target.value }) }}></input>
             </form>
-            version name
+            <div className="orangeText10">
+              version name
+            </div>
           </div>
-          <div className="orangeText10">
+          <div>
             <form>
               <input className="forms" onChange={(e) => { this.setState({ description: e.target.value }) }}></input>
             </form>
-            description
+            <div className="orangeText10">
+              description
+            </div>
           </div>
-          <div className="orangeText10">
+          <div>
             <form>
               <input className="forms" onChange={(e) => { this.setState({ url: e.target.value }) }}></input>
             </form>
-            url
+            <div className="orangeText10">
+              url
+            </div>
           </div>
           <div>
             <button className="modalSubmitButton" onClick={this.handleSubmit}>submit version</button>
