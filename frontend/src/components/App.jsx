@@ -1,9 +1,6 @@
 import React from 'react';
 import Homepage from './homepage/homepage.jsx';
-import Login from './landpagemodals/login.jsx';
-import Signup from './landpagemodals/signup.jsx';
 import Landing from './landingpage/landingpage.jsx';
-import "../styles.css";
 import axios from 'axios';
 import { Global } from '../styledComp.jsx';
 
