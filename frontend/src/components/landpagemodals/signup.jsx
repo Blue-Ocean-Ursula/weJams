@@ -22,18 +22,21 @@ class Signup extends React.Component {
             placeholder='Username'
             name='newUsername'
             onChange={this.props.loginVal}
+            className="formsLp"
           />
           <input
             type='text'
             placeholder='Password'
             name='newPassword'
             onChange={this.props.loginVal}
+            className="formsLp"
           />
           <input
             type='text'
             placeholder='E-Mail'
             name='newEmail'
             onChange={this.props.loginVal}
+            className="formsLp"
           />
           <button onClick={this.props.submit}>Submit</button>
         </div>

@@ -35,12 +35,14 @@ class Login extends React.Component {
           placeholder='Username'
           name='username'
           onChange={this.props.loginVal}
+          className="formsLp"
         />
         <input
           type='text'
           placeholder='Password'
           name='password'
           onChange={this.props.loginVal}
+          className="formsLp"
         />
         <button onClick={this.props.submit}>Submit</button>
         {this.props.userErr && <span style={{'color':'red'}}>errr message here</span>}
