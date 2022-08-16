@@ -21,74 +21,62 @@ class Landing extends React.Component {
   }
 
   loginButton = (e) => {
-    // onClick => open a modal with username and password fields
     this.setState({
       loginModal: true
     })
   }
 
   loginSubmitButton = (e) => {
-    // on Submit query database to find if username is in database and matches password
-      // if yes login user and send to homepage as that user
-      // if no alert message ->
-        // if user isn't in database, "No user by that name"
-        // if password is incorrect, "That password doesn't match, please try again"
-
-      // axios GET request...
-        // if res.data.username !== undefined then
-          // if res.data.username.password === this.state.password
-            // login successfully
-          // else "That password doesn't match, please try again"
-        // else "No user by that name"
-      var user = this.state.username;
-      var pass = this.state.password;
-        axios({
-          method: "post",
-          data: {
-            username: user,
-            password: pass,
-          },
-          withCredentials: true,
-          url: 'http://localhost:3005/login'
+    var user = this.state.username;
+    var password = this.state.password;
+    axios({
+      method: "post",
+      data: {
+        username: user,
+        password: password,
+      },
+      withCredentials: true,
+      url: 'http://localhost:3005/account/login'
+    })
+    .then((res) => {
+      if (res.data === 'successfully authenticated') {
+        this.props.changeUser(user);
+        this.props.goHome();
+      } else {
+        this.setState({
+          userErr: true
         })
-        .then((res) => {console.log(res)})
-
-      this.setState({
-        userErr: true
-      })
-      this.props.changeUser(user)
-      alert('user = ' + user)
+      }
+    })
   }
 
   signUpButton = (e) => {
-    // onClick => open a model with options for username, email, password
     this.setState({
       signupModal: true,
     })
   }
 
   signupSubmitButton = (e) => {
-    // on submit, check database for username,
-      // if no user in database, put user data into database, bring user to homepage
-      // else if user is in database already, "That username already exists. Please try another username"
-      e.preventDefault();
+      var user = this.state.username;
+      var password = this.state.password;
+      var email = this.state.newEmail;
       axios({
         method: "post",
         data: {
-          username: this.state.newUsername,
-          password: this.state.newPassword,
-          email: this.state.newEmail,
+          username: user,
+          password: password,
+          email: email,
         },
         withCredentials: true,
-        url: 'http://localhost:3005/register'
+        url: 'http://localhost:3005/account/register'
       })
-      .then((res) => {console.log(res)})
+      .then((res) => {
+        if (res.data === "User Created") {
+          this.props.changeUser(user);
+            this.props.goHome();
+        }
+      })
   }
-
-  guestButton = (e) => {
-    // onClick => bring user to homepage, but with restricted access (no access) to personal user profile
-  }
-
 
   loginVal = (e) => {
     var name = e.target.name;
