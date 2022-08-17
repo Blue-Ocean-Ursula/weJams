@@ -13,7 +13,7 @@ class Signup extends React.Component {
   render() {
     return (
       <div className='landingModalBackground'>
-        <div className='vCModalContainer'>
+        <div className='lPModalContainer'>
           <div className="modalTopRow">
             <div className="orangeText24">
               Sign-Up

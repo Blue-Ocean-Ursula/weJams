@@ -290,6 +290,19 @@ input {
   z-index: 1001;
 }
 
+.lPModalContainer {
+  width: auto;
+  height: auto;
+  background-color: rgb(46, 46, 46);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1001;
+}
+
 .vItemTopRow {
   display: flex;
   justify-content: space-between;
