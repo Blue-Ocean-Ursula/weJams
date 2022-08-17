@@ -52,7 +52,7 @@ class Login extends React.Component {
               className="forms"
             />
           </div>
-          <div className="modalSubmitButton">
+          <div>
             <button className="modalSubmitButton" onClick={this.props.submit}>Submit</button>
           </div>
           {this.props.userErr && <span style={{ 'color': 'red' }}>errr message here</span>}

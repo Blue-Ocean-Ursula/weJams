@@ -157,6 +157,7 @@ input {
 .homePage {
   background: white;
 }
+
 .homepage-userinfo-container {
   display: flex;
   flex-direction: column;
@@ -309,6 +310,10 @@ input {
   margin: 0;
 }
 
+.modalTitle {
+  padding-bottom: 10px;
+}
+
 /*------------------------------------------  VERSION LIST  ------------------------------------------*/
 
 .versionList {
@@ -437,6 +442,7 @@ input {
   border-width: 0;
   border-radius: 5px;
   font-size: 15pt;
+  font-weight: bold;
   color: rgb(89, 0, 255);
 }
 
@@ -447,9 +453,6 @@ input {
 .modalSubmitButton {
   background-color: rgb(46, 46, 46);
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
-  padding: 2px;
-  padding-left: 5px;
-  padding-right: 5px;
   border-width: 0;
   border-radius: 8px;
   font-size: 15pt;
@@ -481,6 +484,10 @@ input {
   font-size: 24pt;
   font-weight: bold;
   padding-bottom: 5px;
+}
+
+.signUpMline2 {
+  color: rgb(195, 162, 255);
 }
 
 .orangeText10 {

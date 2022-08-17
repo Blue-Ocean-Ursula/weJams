@@ -27,7 +27,7 @@ class UploadModal extends React.Component {
               upload new version
             </div>
             <button className="modalCloseButton" onClick={this.props.close}>
-              x
+              X
             </button>
           </div>
           <div >

@@ -10,7 +10,7 @@ class VersionItem extends React.Component {
 
   render() {
     return (
-      <div className="versionItem">
+      <div className="versionCItem">
         <div className="vItemTopRow">
           <div className="lineup">
             <div className="orangeText10">

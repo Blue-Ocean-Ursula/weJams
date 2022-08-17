@@ -51,7 +51,7 @@
   padding: 0px;
 }
 
-.versionItem {
+.versionCItem {
   width: auto;
   height: auto;
   padding: 5px;
@@ -114,13 +114,16 @@
   padding-right: 5px;
   border-width: 0;
   border-radius: 8px;
-  color: rgb(255, 115, 0);
+  font-size: 12pt;
+  color: rgb(89, 0, 255);
   font-weight: bold;
+  margin-top: 10px;
   display: flex;
 }
 
 .uploadButton:hover {
-  color: rgb(255, 182, 122);
+  color: rgb(190, 147, 255);
+  transition-duration: .5s;
 }
 
 
@@ -131,12 +134,13 @@
   border-width: 0;
   border-radius: 8px;
   font-size: 8pt;
-  color: rgb(255, 115, 0);
+  color: rgb(147, 88, 255);
   font-weight: bold;
 }
 
 .downloadButton:hover {
-  color: rgb(255, 182, 122);
+  color: rgb(190, 147, 255);
+  transition-duration: .5s;
 }
 
 
@@ -149,14 +153,15 @@
   border-width: 0;
   border-radius: 8px;
   font-size: 10pt;
-  color: rgb(255, 115, 0);
+  color: rgb(89, 0, 255);
   font-weight: bold;
   margin-top: 10px;
   display: flex;
 }
 
 .modalSubmitButton:hover {
-  color: rgb(255, 182, 122);
+  color: rgb(190, 147, 255);
+  transition-duration: .5s;
 }
 
 .modalCloseButton {
@@ -170,15 +175,16 @@
   border-width: 0;
   border-radius: 5px;
   font-size: 10pt;
-  color: rgb(255, 115, 0);
+  color: rgb(89, 0, 255);
 }
 
 .modalCloseButton:hover {
-  color: rgb(255, 182, 122);
+  color: rgb(190, 147, 255);
+  transition-duration: .5s;
 }
 
 .likes {
-  color: rgb(255, 115, 0);
+  color: rgb(147, 88, 255);
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
   font-size: 10pt;
   font-weight: bold;
@@ -188,13 +194,14 @@
 }
 
 .likes:hover {
-  color: rgb(255, 182, 122);
+  color: rgb(190, 147, 255);
+  transition-duration: .5s;
 }
 
 /*--------------------------------------------  TEXT  -----------------------------------------------*/
 
 .orangeText24 {
-  color: rgb(255, 115, 0);
+  color: rgb(89, 0, 255);
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
   font-size: 24pt;
   font-weight: bold;
@@ -203,7 +210,7 @@
 }
 
 .orangeText20 {
-  color: rgb(255, 115, 0);
+  color: rgb(89, 0, 255);
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
   font-size: 24pt;
   font-weight: bold;
@@ -212,9 +219,9 @@
 }
 
 .orangeText10 {
-  color: rgb(255, 115, 0);
+  color: rgb(147, 88, 255);
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
-  font-size: 10pt;
+  font-size: 12pt;
   font-weight: bold;
   padding-right: 5px;
   padding-top: 2px;
@@ -233,7 +240,7 @@
 }
 
 audio {
-  background-color: rgb(255, 204, 116);
+  background-color:rgb(195, 162, 255);
   width: 100%;
   border-radius: 10px;
   height: 60px;
@@ -242,12 +249,12 @@ audio {
 }
 
 audio::-webkit-media-controls-play-button {
-  background-color: rgb(255, 198, 99);
+  background-color: rgb(195, 162, 255);
   border-radius: 15px;
   opacity: 100%;
 }
 
 audio::-webkit-media-controls-panel {
-  background-color: rgb(255, 240, 213);
+  background-color: rgb(221, 202, 255);
 }
 

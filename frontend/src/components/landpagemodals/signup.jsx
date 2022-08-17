@@ -22,7 +22,7 @@ class Signup extends React.Component {
               X
             </button>
           </div>
-          <p>Please create a new username and password</p>
+          <div className="signUpMline2">Please create a new username and password</div>
           <div>
             <form>
               <input

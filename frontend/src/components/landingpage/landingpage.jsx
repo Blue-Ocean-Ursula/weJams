@@ -3,6 +3,7 @@ import Homepage from '../homepage/homepage.jsx';
 import Login from '../landpagemodals/login.jsx';
 import Signup from '../landpagemodals/signup.jsx';
 import axios from 'axios';
+import VersionControl from '../VersionControl/VersionControl.jsx'
 
 class Landing extends React.Component {
   constructor(props) {
@@ -107,6 +108,7 @@ class Landing extends React.Component {
 
   render() {
     return (
+      <div>
       <div className='mainLanding'>
             {this.state.loginModal && <Login open={this.state.loginModal} changeUser={this.props.changeUser} loginVal={this.loginVal} submit={this.loginSubmitButton} userErr={this.state.userErr} passErr={this.state.passErr} exit={this.exitModal} />}
         {this.state.signupModal && <Signup loginVal={this.loginVal} submit={this.signupSubmitButton} exit={this.exitModal} />}
@@ -116,6 +118,10 @@ class Landing extends React.Component {
           <button onClick={this.props.goHome} className='landpage-buttons'>Continue as Guest</button>
           <button onClick={this.signUpButton} className='landpage-buttons'>Sign Up</button>
         </div>
+      </div>
+      <div>
+        <VersionControl/>
+      </div>
       </div>
 
     )
