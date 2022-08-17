@@ -59,10 +59,6 @@ class Landing extends React.Component {
       })
   }
 
-  guestButton = (e) => {
-    // onClick => bring user to homepage, but with restricted access (no access) to personal user profile
-  }
-
   render() {
     return (
       <div className='mainLanding'>
