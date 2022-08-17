@@ -1,10 +1,11 @@
 import React from 'react';
+import axios from 'axios';
 
 class UploadModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      version_name: '',
       description: '',
       url: ''
     }
@@ -14,7 +15,27 @@ class UploadModal extends React.Component {
   //function send post req and closes modal window
   handleSubmit = () => {
     //post req to server:
-
+    axios({
+      method: 'post',
+      url: 'http://localhost:3005/band/version',
+      data :
+      {
+        bandname: "Butterflies",
+        uploads:
+        {
+          musicName: "wE arE buttErfliEs",
+          version_history:
+          {
+          version_name: this.state.version_name,
+          description: this.state.description,
+          url: this.state.url,
+          likes: 0,
+          createdAt: "Wed Aug 17 2021 11:21:26"
+          }
+        },
+        new_entry: "true"
+      }
+    });
     this.props.close();
   }
 

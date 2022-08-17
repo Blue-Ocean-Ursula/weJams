@@ -83,8 +83,7 @@ class VersionControl extends React.Component {
             {/* render list here */}
             <div className="versionList" >{versionList}</div>
             <div>
-
-              <button className="uploadButton" onClick={this.handleUpload}>upload new version</button>
+              <button className="modalSubmitButton" onClick={this.handleUpload}>upload new version</button>
             </div>
           </div>
         </div>

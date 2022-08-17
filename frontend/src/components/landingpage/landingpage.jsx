@@ -3,7 +3,8 @@ import Homepage from '../homepage/homepage.jsx';
 import Login from '../landpagemodals/login.jsx';
 import Signup from '../landpagemodals/signup.jsx';
 import axios from 'axios';
-import VersionControl from '../VersionControl/VersionControl.jsx'
+//import VersionControl from '../VersionControl/VersionControl.jsx';
+import BandModal from '../profilepage/CreateBandModal.jsx';
 
 class Landing extends React.Component {
   constructor(props) {
@@ -119,8 +120,11 @@ class Landing extends React.Component {
           <button onClick={this.signUpButton} className='landpage-buttons'>Sign Up</button>
         </div>
       </div>
-      <div>
+      {/* <div>
         <VersionControl/>
+      </div> */}
+      <div>
+        <BandModal/>
       </div>
       </div>
 
