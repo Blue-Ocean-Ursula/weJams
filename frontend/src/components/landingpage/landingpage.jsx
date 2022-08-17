@@ -1,8 +1,9 @@
 import React from 'react';
-import Homepage from '../homepage/homepage.jsx';
+// import Homepage from '../homepage/homepage.jsx';
 import Login from '../landpagemodals/login.jsx';
 import Signup from '../landpagemodals/signup.jsx';
 import axios from 'axios';
+// import signupSubmitButton from 'landingpage.jsx';
 
 class Landing extends React.Component {
   constructor(props) {
@@ -57,25 +58,25 @@ class Landing extends React.Component {
   }
 
   signupSubmitButton = (e) => {
-      var user = this.state.username;
-      var password = this.state.password;
-      var email = this.state.newEmail;
-      axios({
-        method: "post",
-        data: {
-          username: user,
-          password: password,
-          email: email,
-        },
-        withCredentials: true,
-        url: 'http://localhost:3005/account/register'
-      })
-      .then((res) => {
-        if (res.data === "User Created") {
-          this.props.changeUser(user);
-            this.props.goHome();
-        }
-      })
+    var user = this.state.username;
+    var password = this.state.password;
+    var email = this.state.newEmail;
+    axios({
+      method: "post",
+      data: {
+        username: user,
+        password: password,
+        email: email,
+      },
+      withCredentials: true,
+      url: 'http://localhost:3005/account/register'
+    })
+    .then((res) => {
+      if (res.data === "User Created") {
+        this.props.changeUser(user);
+          this.props.goHome();
+      }
+    })
   }
 
   loginVal = (e) => {
@@ -109,3 +110,5 @@ class Landing extends React.Component {
 }
 
 export default Landing;
+
+
