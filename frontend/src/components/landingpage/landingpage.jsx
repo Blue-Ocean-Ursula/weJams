@@ -108,9 +108,9 @@ class Landing extends React.Component {
   render() {
     return (
       <div className='mainLanding'>
-        <h1 id='weTitle'>WeJamz</h1>
-        {this.state.loginModal && <Login open={this.state.loginModal} changeUser={this.props.changeUser} loginVal={this.loginVal} submit={this.loginSubmitButton} userErr={this.state.userErr} passErr={this.state.passErr} exit={this.exitModal} />}
+            {this.state.loginModal && <Login open={this.state.loginModal} changeUser={this.props.changeUser} loginVal={this.loginVal} submit={this.loginSubmitButton} userErr={this.state.userErr} passErr={this.state.passErr} exit={this.exitModal} />}
         {this.state.signupModal && <Signup loginVal={this.loginVal} submit={this.signupSubmitButton} exit={this.exitModal} />}
+        <h1 className='weTitle'>WeJamz</h1>
         <div className="buttonsRowLp">
           <button onClick={this.loginButton} className='landpage-buttons'>Login</button>
           <button onClick={this.props.goHome} className='landpage-buttons'>Continue as Guest</button>

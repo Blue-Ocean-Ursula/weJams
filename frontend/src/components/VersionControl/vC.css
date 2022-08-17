@@ -241,7 +241,6 @@ audio {
 
 }
 
-
 audio::-webkit-media-controls-play-button {
   background-color: rgb(255, 198, 99);
   border-radius: 15px;

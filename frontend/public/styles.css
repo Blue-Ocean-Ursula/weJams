@@ -1,7 +1,8 @@
 
 @font-face {
-  font-family: 'MontserratAlternates-Regular';
-  src: url("./src/font/MontserratAlternates-Regular.ttf") format('truetype'),
+  font-family: 'Mont';
+  src: url("./src/font/MontserratAlternates-Regular.ttf") format('.ttf');
+  src: url("./src/font/MontserratAlternates-Regular.ttf") format('truetype')
 
 }
 
@@ -50,15 +51,15 @@ input {
   margin-top: 1vh;
   color: white;
 }
-#modalExit {
+/* #modalExit {
   width: fit-content;
-}
+} */
 /*==========Landing Page==========*/
 .mainLanding {
 
 }
 
-#weTitle {
+.weTitle {
   color: rgb(89, 0, 255);
   font-size: 150pt;
   text-align: center;
@@ -95,6 +96,7 @@ input {
   justify-content: center;
   align-items: center;
   z-index: 1001;
+  padding-top: 10em;
   margin-left: 52em;
   margin-bottom: 100em;
   justify-content: center;
@@ -136,7 +138,7 @@ input {
 }
 
 .modalSubmitButtonLp {
-  background-color: rgb(46, 46, 46);
+  background-color: rgb(141, 21, 21);
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
   padding: 2px;
   padding-left: 5px;
@@ -275,7 +277,7 @@ input {
 }
 
 .vCModalContainer {
-  width: 750px;
+  width: auto;
   height: auto;
   background-color: rgb(46, 46, 46);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -359,7 +361,7 @@ input {
 }
 
 .uploadModalContainer {
-  width: 600px;
+  width: auto;
   height: auto;
   background-color: rgb(91, 91, 91);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -424,11 +426,57 @@ input {
   font-weight: bold;
 }
 
+.modalCloseButton {
+  background-color: rgb(46, 46, 46);
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding: 2px;
+  height: 15px;
+  width: 15px;
+  border-width: 0;
+  border-radius: 5px;
+  font-size: 15pt;
+  color: rgb(89, 0, 255);
+}
+
+.modalCloseButton:hover {
+  color: rgb(195, 162, 255);
+}
+
+.modalSubmitButton {
+  background-color: rgb(46, 46, 46);
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-width: 0;
+  border-radius: 8px;
+  font-size: 15pt;
+  color: rgb(89, 0, 255);
+  font-weight: bold;
+  margin-top: 10px;
+  display: flex;
+}
+
+.modalSubmitButton:hover {
+  color: rgb(195, 162, 255);
+}
+
+.forms {
+  width: 45em;
+  margin-top: 10px;
+  height: 20px;
+  background-color: rgb(177, 177, 177);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 3px;
+  border-width: 0px;
+}
 
 /*--------------------------------------------  TEXT  -----------------------------------------------*/
 
 .orangeText24 {
-  color: rgb(255, 115, 0);
+  color: rgb(89, 0, 255);
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
   font-size: 24pt;
   font-weight: bold;

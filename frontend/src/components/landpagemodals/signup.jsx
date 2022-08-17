@@ -13,32 +13,48 @@ class Signup extends React.Component {
   render() {
     return (
       <div className='landingModalBackground'>
-        <div className='landingModalContainer'>
-        <button id='modalExit' onClick={this.props.exit}>X</button>
-          <h1>Sign-Up</h1>
+        <div className='vCModalContainer'>
+          <div className="modalTopRow">
+            <div className="orangeText24">
+              Sign-Up
+            </div>
+            <button className="modalCloseButton" onClick={this.props.exit}>
+              X
+            </button>
+          </div>
           <p>Please create a new username and password</p>
-          <input
-            type='text'
-            placeholder='Username'
-            name='newUsername'
-            onChange={this.props.loginVal}
-            className="formsLp"
-          />
-          <input
-            type='text'
-            placeholder='Password'
-            name='newPassword'
-            onChange={this.props.loginVal}
-            className="formsLp"
-          />
-          <input
-            type='text'
-            placeholder='E-Mail'
-            name='newEmail'
-            onChange={this.props.loginVal}
-            className="formsLp"
-          />
-          <button onClick={this.props.submit}>Submit</button>
+          <div>
+            <form>
+              <input
+                type='text'
+                placeholder='Username'
+                name='newUsername'
+                onChange={this.props.loginVal}
+                className="forms"
+              />
+            </form>
+            <form>
+              <input
+                type='text'
+                placeholder='Password'
+                name='newPassword'
+                onChange={this.props.loginVal}
+                className="forms"
+              />
+            </form>
+            <form>
+              <input
+                type='text'
+                placeholder='E-Mail'
+                name='newEmail'
+                onChange={this.props.loginVal}
+                className="forms"
+              />
+            </form>
+          </div>
+          <div>
+            <button className="modalSubmitButton" onClick={this.props.submit}>Submit</button>
+          </div>
         </div>
       </div>
 
