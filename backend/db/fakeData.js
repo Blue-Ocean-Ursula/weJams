@@ -31,6 +31,7 @@ const fakeUsers = [
 		"following": ["Dua Lipa", "Candace"],
 		"followedby": ["Kai"],
 		"memberof": ["Butterflies", "Ice ages"],
+    "chatroom":["LawrenceCandace","BandButterflies"],
 		"uploads": [
       {
         "musicName": "I like HR",
@@ -84,6 +85,7 @@ const fakeUsers = [
   "following": ["Dua Lipa"],
   "followedby": ["Lawrence", "Kai"],
   "memberof": ["Butterflies"],
+  "chatroom": ["LawrenceCandace","BandButterflies"],
   "uploads": [
     {
       "musicName": "Dynamite",
@@ -122,6 +124,7 @@ const fakeUsers = [
   "following": ["Dua Lipa", "Lawrence", "Candace"],
   "followedby": ["Lawrence", "Kai"],
   "memberof": ["Ice ages"],
+  "chatroom": [],
   "uploads": [{
     "musicName": "randomSong",
     "description": "whatever!",
@@ -230,7 +233,53 @@ const fakeBands = [
         "action": "Published a new song",
         "involvedName": "stay cool, stay cold"
       }]
-    }
+    },
+    {
+      "bandname": "Fire",
+      "bio": "hot hot hot",
+      "category": ["old school"],
+      "avatar": "https://robohash.org/minimaetvoluptatum.png?size=50x50&set=set1",
+      "followedby": ["Dua Lipa"],
+      "memberof": ["Kai", "Lawrence"],
+      "uploads": [
+        {
+          "musicName": "stay hot stay hot",
+          "version_history": [
+          {
+            "version_name": "Original",
+            "description": "burn",
+            "url": "http://aweaewawe/wasd.com/weaa12353",
+            "likes": 12,
+            "createdAt": "Fri Aug 12 2021 11:21:26"
+          },
+          {
+            "version_name": "Remix1",
+            "description": "burn",
+            "url": "http://aweaewawe/wasd.com/weaa12353",
+            "likes": 12,
+            "createdAt": "Fri Aug 12 2021 11:21:26"
+          },
+          {
+            "version_name": "Remix2",
+            "description": "burn!",
+            "url": "http://aweaewawe/wasd.com/weaa12353",
+            "likes": 12,
+            "createdAt": "Fri Aug 12 2021 11:21:26"
+          }]
+        }
+      ],
+      "timeline": [
+        {
+          "date":"Fri Aug 05 2021 11:21:26",
+          "action": "Started the new band ",
+          "involvedName": "Butterflies"
+        },
+        {
+          "date": "Fri Aug 12 2021 11:21:26",
+          "action": "Published a new song",
+          "involvedName": "stay cool, stay cold"
+        }]
+      }
 ]
 
 const fakeChats = [

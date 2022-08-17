@@ -9,82 +9,87 @@ class VersionControl extends React.Component {
     this.state = {
       uploadModal: false,
       username: "Lawrence",
-      uploads: {"musicName": "Javascript is another jazz",
-                "version_history": [
-                   {
-                     "version_name": "Official instrumental",
-                     "description": "I got the inspiration from my FEC project experience",
-                     "url": "http://aweaewawe/wasd.com/weaa12343",
-                     "likes": 15,
-                     "createdAt": "Thu Jul 11 2022 11:21:26",
-                   },
-                   {
-                     "version_name": "Remix",
-                     "description": "this is a song I wrote for one of my memorable experience",
-                     "url": "http://aweaewawe/wasd.com/weaa12343",
-                     "likes": 12,
-                     "createdAt": "Fri Aug 18 2022 11:21:26",
-                   }
-                ]
-              }
+      uploads: {
+        "musicName": "Javascript is another jazz",
+        "version_history": [
+          {
+            "version_name": "Official instrumental",
+            "description": "I got the inspiration from my FEC project experience",
+            "url": "http://aweaewawe/wasd.com/weaa12343",
+            "likes": 15,
+            "createdAt": "Thu Jul 11 2022 11:21:26",
+          },
+          {
+            "version_name": "Remix",
+            "description": "this is a song I wrote for one of my memorable experience",
+            "url": "http://aweaewawe/wasd.com/weaa12343",
+            "likes": 12,
+            "createdAt": "Fri Aug 18 2022 11:21:26",
+          }
+        ]
+      }
+
+    }
+  }
+
+
+  //this component shows the current project and a list of the edits(history)
+  //it will also display the information attached to each project and edit
+
+
+  //put req to db with new audio upload
+  //function that will allow user to upload version
+  handleUpload = () => {
+    if (this.state.uploadModal === false) {
+      this.setState({
+        uploadModal: true
+      })
+    } else {
+      this.setState({
+        uploadModal: false
+      })
+    }
+    //TODO:
+    //axios post request to database with info for current edit
 
   }
-}
 
-
-//this component shows the current project and a list of the edits(history)
-//it will also display the information attached to each project and edit
-
-
-//put req to db with new audio upload
-//function that will allow user to upload version
-handleUpload = () => {
-  if (this.state.uploadModal === false) {
-    this.setState({
-      uploadModal: true
-    })
-  } else {
-    this.setState({
-      uploadModal: false
-    })
+  //function that will allow user to down load version each individual version
+  handleDownload = () => {
+    //TODO:
+    //hanlde down load for each individual edit
   }
-  //TODO:
-  //axios post request to database with info for current edit
-
-}
-
-//function that will allow user to down load version each individual version
-handleDownload = () => {
-  //TODO:
-  //hanlde down load for each individual edit
-}
 
 
-render() {
-  const versionList = this.state.uploads.version_history.map((version) => (
-    <VersionItem version={version} />
-  ));
+  render() {
+    const versionList = this.state.uploads.version_history.map((version) => (
+      <VersionItem version={version} />
+    ));
 
-  return (
-    <>
-      {this.state.uploadModal && <UploadModal close={this.handleUpload} info={this.state.uploads} username={this.state.username}/>}
-      <div className="versionControl" className="vCModalBackground">
-        <div className="vCModalContainer">
-          <div className="orangeText24">
-            Project History
-          </div>
-          {/* display component that lists the different versions of the project */}
-          {/* render list here */}
-          <div className="versionList" >{versionList}</div>
-          <div>
-
-            <button className="uploadButton" onClick={this.handleUpload}>upload new version</button>
+    return (
+      <>
+        {this.state.uploadModal && <UploadModal close={this.handleUpload} info={this.state.uploads} username={this.state.username} />}
+        <div className="vCModalBackground">
+          <div className="vCModalContainer">
+            <div className="modalTopRow">
+              <div className="orangeText24">
+                Project History
+              </div>
+              <button className="modalCloseButton">
+                X
+              </button>
+            </div>
+            {/* display component that lists the different versions of the project */}
+            {/* render list here */}
+            <div className="versionList" >{versionList}</div>
+            <div>
+              <button className="modalSubmitButton" onClick={this.handleUpload}>upload new version</button>
+            </div>
           </div>
         </div>
-      </div>
-    </>
-  )
-}
+      </>
+    )
+  }
 }
 
 export default VersionControl;
