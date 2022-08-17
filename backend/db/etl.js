@@ -9,8 +9,11 @@ mongoose.connect(`mongodb+srv://<username>:<your key>@blueocean.5pe6ny1.mongodb.
   useNewUrlParser:true,
   useUnifiedTopology: true,
 },
-()=> {
-  console.log('Mongoose Is Connected')
+(err)=> {
+  if (err) {
+    console.log(err)
+  } else {
+  console.log('Mongoose Is Connected')}
 })
 
 var importFakeData = async function(fakeBands, fakeChats, fakeUsers) {
