@@ -1,8 +1,10 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const axios = require('axios');
 const {fakeAuths, fakeBands, fakeChats, fakeUsers} = require('./fakeData.js')
 const {JamsAuth, JamsUser, JamsBand, JamsChat} = require('./schema.js');
-
+const username = process.env.username;
+const key = process.env.key;
 mongoose.connect(`mongodb+srv://<username>:<your key>@blueocean.5pe6ny1.mongodb.net/?retryWrites=true&w=majority`, {
   useNewUrlParser:true,
   useUnifiedTopology: true,
