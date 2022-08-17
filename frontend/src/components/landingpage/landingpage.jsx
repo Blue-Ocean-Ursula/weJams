@@ -1,5 +1,4 @@
 import React from 'react';
-import Homepage from '../homepage/homepage.jsx';
 import Login from '../landpagemodals/login.jsx';
 import Signup from '../landpagemodals/signup.jsx';
 import axios from 'axios';
