@@ -1,4 +1,7 @@
 import React from 'react';
+<<<<<<< HEAD
+// import { Button } from 'react-scroll';
+=======
 import {Button} from 'react-scroll';
 import { BioContainer,
   BioWrapper,
@@ -12,6 +15,7 @@ import { BioContainer,
   Column2,
   ImgWrp
 } from './bioElements.jsx';
+>>>>>>> 78cbb6cc3f13b94add15eb8628fa1c49799c2d2e
 
 const BioSection = () => {
   return (

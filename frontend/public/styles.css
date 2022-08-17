@@ -44,6 +44,10 @@ input {
   margin-top: 1vh;
   max-height: 20px;
 }
+#homebutton {
+  margin-top: 1vh;
+  max-height: 20px;
+}
 #search{
   margin-top: 1vh;
 }

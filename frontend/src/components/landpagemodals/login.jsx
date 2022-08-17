@@ -26,7 +26,6 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className='landingModalBackground'>
         <div className='lPModalContainer'>
           <div className="modalTopRow">
             <div className="orangeText24">
@@ -57,9 +56,6 @@ class Login extends React.Component {
           </div>
           {this.props.userErr && <span style={{ 'color': 'red' }}>errr message here</span>}
         </div>
-      </div>
-
-
     )
   }
 }

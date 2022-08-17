@@ -1,12 +1,10 @@
 import React from 'react';
 import Login from '../landpagemodals/login.jsx';
-import Landing from '../landingpage/landingpage.jsx';
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loginModal: false,
       username: null,
       password: null,
       userErr: false
@@ -17,25 +15,15 @@ searchButton = (e) => {
   alert('this doesn\'t work yet');
 }
 
-loginButton = (e) => {
-  // onClick => open a modal with username and password fields
-  this.setState({
-    loginModal: true
-  })
-}
-
-exitModal = (e) => {
-  this.setState({
-    loginModal: false
-  })
-}
-
-
   render() {
+    var log, home;
     if (this.props.user === 'Guest') {
-      var log = <button id='logout' onClick={this.loginButton}>Login</button>
+      log = <button id='logout' onClick={this.props.loginButton}>Login</button>
     } else {
-      var log = <button id='logout' onClick={this.props.land}>Logout</button>;
+      log = <button id='logout' onClick={this.props.land}>Logout</button>;
+    }
+    if (this.props.view !== 'home') {
+      home = <button id='homebutton' onClick={this.props.goHome}>Return to Homepage</button>
     }
     return (
       <div>
@@ -48,13 +36,26 @@ exitModal = (e) => {
         <button onClick={this.searchButton}>Search</button>
         </div>
         <div id='signedIn'>Signed in as {this.props.user}</div>
+        {home}
         {log}
       </span>
-        {this.state.loginModal && <Login loginVal={Landing.loginVal} submit={Landing.loginSubmitButton} exit={this.exitModal} userErr={this.state.userErr}/>}
+        {this.props.login && <Login loginVal={this.props.loginVal} submit={this.props.submit} exit={this.props.exit} userErr={this.props.userErr} changeUser={this.props.changeUser} />}
         {/* loginVal={Landing.loginVal} submit={Landing.loginSubmitButton} userErr={Landing.state.userErr} passErr={Landing.state.passErr}  */}
       </div>
     )
   }
 }
 
+// reorder = () => {
+
+//   array.forEach((item) => {
+//     var temp1 = item;
+//     var index = Math.floor(Math.random() * array.length - 1);
+//     var temp2 = array[index];
+//     item = temp2;
+//     array[index] = item;
+//   })
+//   }
+
 export default Navbar;
+

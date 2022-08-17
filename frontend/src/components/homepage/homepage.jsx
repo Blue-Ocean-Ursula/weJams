@@ -119,7 +119,7 @@ class Homepage extends React.Component {
 
        {
         "username": "Kai",
-        "bio": "I don\’t care, I don\’t mind, I am myself!",
+        "bio": "I dont care, I dont mind, I am myself!",
         "avatar": "https://robohash.org/numquamnihilet.png?size=50x50&set=set1",
         "category": ["old school", "pop music"],
         "following": ["Dua Lipa", "Lawrence", "Candace"],
@@ -153,7 +153,7 @@ class Homepage extends React.Component {
     return (
       <>
         <div className='homepage-container'>
-          <Navbar land={this.props.land} user={this.props.user} />
+          <Navbar land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view}/>
           <div className='homepage-userinfo-container'>
             <img className='usersphoto' src='https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp' alt='profile' />
             <h4 className='username-h4'>Username</h4>
