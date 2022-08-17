@@ -347,6 +347,7 @@ input {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
   padding: 5px;
+  margin-bottom: 15px;
   border-width: 0;
   border-radius: 8px;
   font-size: 8pt;
@@ -409,4 +410,21 @@ input {
   max-height: 30px;
   text-align: center;
   flex-direction: column;
+}
+
+.homepage-userprojects-buttons {
+  display: flex;
+  color: rgb(255, 115, 0);
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  font-size: 10pt;
+  font-weight: bold;
+  padding: 0;
+  /* padding-right: 5px; */
+  /* padding-top: 2px;
+  padding-bottom: 5px; */
+  max-height: 100%;
+  text-align: center;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }

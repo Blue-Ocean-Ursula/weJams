@@ -1,6 +1,7 @@
 import React from 'react';
 import Homepage from './homepage/homepage.jsx';
 import Landing from './landingpage/landingpage.jsx';
+import ProfileHome from './profilepage/profilePageIndex.jsx';
 import axios from 'axios';
 import { Global } from '../styledComp.jsx';
 // import VersionControl from './VersionControl/VersionControl.jsx';
@@ -46,8 +47,6 @@ class App extends React.Component {
   render() {
     return (
       <>
-      {/* <VersionControl></VersionControl> */}
-      {/* <ProfilePage></ProfilePage> */}
       <Global backgroundImg={this.state.background}/>
       {this.state.view === 'landing' && <Landing goHome={this.goHome} user={this.state.user} changeUser={this.changeUser}/>}
       {this.state.view === 'home' && <Homepage user={this.state.user} goProfile={this.goProfile} land={this.goLanding} changeUser={this.changeUser}/>}

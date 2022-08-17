@@ -22,3 +22,5 @@ export const Button = styled(Link)`
   }
 `
 ;
+
+export default Button;

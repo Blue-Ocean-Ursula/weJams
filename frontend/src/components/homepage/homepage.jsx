@@ -8,27 +8,11 @@ class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      uploads: {
-        "musicName": "Javascript is another jazz",
-        "version_history": [
-          {
-            "version_name": "Official instrumental",
-            "description": "I got the inspiration from my FEC project experience",
-            "url": "http://aweaewawe/wasd.com/weaa12343",
-            "likes": 15,
-            "createdAt": "Thu Jul 11 2022 11:21:26",
-          },
-          {
-            "version_name": "Remix",
-            "description": "this is a song I wrote for one of my memorable experience",
-            "url": "http://aweaewawe/wasd.com/weaa12343",
-            "likes": 12,
-            "createdAt": "Fri Aug 18 2022 11:21:26",
-          }
-        ]
-      },
       users: [],
       loggedInUser: null,
+      uploads: [],
+      VCShow: false,
+      currentVersion: '',
     }
   }
 
@@ -46,13 +30,11 @@ class Homepage extends React.Component {
       withCredentials: true,
       url: 'http://localhost:3005/account/getUser'
     })
-    .then((res) => {
-      console.log(res)
-      this.setState({
-        loggedInUser: res.data,
+      .then((res) => {
+        this.setState({
+          loggedInUser: res.data,
+        })
       })
-    })
-    console.log(this.state.loggedInUser)
   }
 
   getAllUsers = () => {
@@ -61,13 +43,24 @@ class Homepage extends React.Component {
       withCredentials: true,
       url: 'http://localhost:3005/account/getallUser'
     })
-    .then((res) => {
-      console.log(res)
-      this.setState({
-        users: res.data,
-      })
-    })
+      .then((res) => {
+        this.setState({
+          users: res.data,
+        }, () => {
+          var uploadsArr = [];
+          this.state.users.forEach((user) => {
+            user.uploads.forEach((uploaded) => {
+              if (uploaded.version_history.length > 0) {
+                uploadsArr.push(uploaded);
+              }
+            })
+          })
+          this.setState({
+            uploads: uploadsArr,
+          })
+         })
 
+      })
   }
 
   goToMyProf = () => {
@@ -86,16 +79,23 @@ class Homepage extends React.Component {
     // when clicked, open a live chat option with specified user
   }
 
+  seeVCModal = (e) => {
+    console.log(e.target.attributes[1].value);
+    this.setState({
+      VCShow: true,
+    })
+  };
 
 
   render() {
-    const musicList = this.state.uploads.version_history.map((version) => (
-      <HPMusicList version={version} />
+    // let newUploads = this.state.uploads;
+    const musicList = this.state.uploads.map((uploaded2) => (
+      <HPMusicList seeVCModal={this.seeVCModal} usersUploads={uploaded2.version_history[0]}/>
     ));
     const usersList = this.state.users.map((user) => (
       <HPUsersList user={user} uploads={user.uploads} />
     ));
-    if (this.props.user === 'Guest' || this.props.user === null) {
+    if ((this.props.user === 'Guest' && this.state.uploads.length !== 0) || this.props.user === null) {
       return (
         <>
           <div className='homepage-container'>
