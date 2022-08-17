@@ -12,7 +12,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/login', (req, res, next) => {
-  // console.log(req.body)
   passport.authenticate('local', (err, user, info) => {
     if (err) {
       console.log(err)
@@ -69,6 +68,21 @@ router.get('/getUser', async (req, res) => {
     }
   } else {
     res.status(200).send('please log in first')
+  }
+})
+
+router.get('/getallUser', async (req, res) => {
+  if (req.user) {
+    try {
+      const userInfo = await JamsUser.find();
+      res.status(200).send(userInfo);
+    }
+    catch(err) {
+      console.log(err);
+      res.status(404).send(err);
+    }
+  } else {
+    res.status(200).send('please log in first');
   }
 })
 
