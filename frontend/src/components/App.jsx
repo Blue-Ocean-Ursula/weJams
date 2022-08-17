@@ -1,22 +1,61 @@
 import React from 'react';
 import Homepage from './homepage/homepage.jsx';
-import Login from './landpagemodals/login.jsx';
-import Signup from './landpagemodals/signup.jsx';
+import Landing from './landingpage/landingpage.jsx';
+// import ProfileHome from './profilepage/profilePageIndex.jsx';
+import axios from 'axios';
+import { Global } from '../styledComp.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loginModal: true,
-      signupModal: true,
+      loginModal: null,
+      user: 'Guest',
+      view: 'landing',
+      background: 'https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp',
       username: null,
       password: null,
-      newUsername: null,
-      newPassword: null,
       newEmail: null,
       userErr: null,
-      passErr: null
+      passErr: null,
     }
+  }
+
+
+  goLanding = (e) => {
+    this.setState({
+      user: 'Guest',
+      view: 'landing',
+      background: 'https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp'
+    })
+  }
+
+  goHome = (e) => {
+    this.setState({
+      view: 'home',
+      background: 'https://res.cloudinary.com/dktim9rur/image/upload/v1658162058/nyyag1xyh1z7akuep8px.gif'
+    })
+  }
+
+  goProfile = (e) => {
+    this.setState({
+      view: 'profile',
+      background: 'https://media.giphy.com/media/Wm92G9u3KisHcdo3yl/giphy.gif'
+    })
+  }
+
+  changeUser = (user) => {
+    this.setState({
+      user: user
+    })
+  }
+
+  exitModal = (e) => {
+    this.setState({
+      loginModal: false,
+      signupModal: false,
+      userErr: null
+    })
   }
 
   loginButton = (e) => {
@@ -26,43 +65,6 @@ class App extends React.Component {
     })
   }
 
-  loginSubmitButton = (e) => {
-    // on Submit query database to find if username is in database and matches password
-      // if yes login user and send to homepage as that user
-      // if no alert message ->
-        // if user isn't in database, "No user by that name"
-        // if password is incorrect, "That password doesn't match, please try again"
-
-      // axios GET request...
-        // if res.data.username !== undefined then
-          // if res.data.username.password === this.state.password
-            // login successfully
-          // else "That password doesn't match, please try again"
-        // else "No user by that name"
-
-      this.setState({
-        userErr: true
-      })
-  }
-
-  signUpButton = (e) => {
-    // onClick => open a model with options for username, email, password
-    this.setState({
-      signupModal: true,
-    })
-  }
-
-  signupSubmitButton = () => {
-    // on submit, check database for username,
-      // if no user in database, put user data into database, bring user to homepage
-      // else if user is in database already, "That username already exists. Please try another username"
-  }
-
-  guestButton = (e) => {
-    // onClick => bring user to homepage, but with restricted access (no access) to personal user profile
-  }
-
-
   loginVal = (e) => {
     var name = e.target.name;
     var val = e.target.value;
@@ -71,18 +73,49 @@ class App extends React.Component {
     })
   }
 
+  loginSubmitButton = (e) => {
+    var user = this.state.username;
+    var password = this.state.password;
+
+    axios({
+      method: "post",
+      data: {
+        username: user,
+        password: password,
+      },
+      withCredentials: true,
+      url: 'http://localhost:3005/account/login'
+    })
+    .then((res) => {
+      if (res.data === 'successfully authenticated') {
+        this.changeUser(user);
+        this.exitModal();
+        this.goHome();
+      } else {
+        this.setState({
+          userErr: true
+        })
+      }
+    })
+  }
+
   render() {
     return (
-      <div className='mainLanding'>
-        <h1 id='weTitle'>WeJamz</h1>
-        <button className='landpage-buttons'>Login</button>
-        <button className='landpage-buttons'>Sign Up</button>
-        <button className='landpage-buttons'>Continue as Guest</button>
-        {this.state.loginModal && <Login loginVal={this.loginVal} submit={this.loginSubmitButton} userErr={this.state.userErr} passErr={this.state.passErr} />}
-        {this.state.signupModal && <Signup loginVal={this.loginVal} submit={this.signupSubmitButton}/>}
-        <Homepage/>
-      </div>
+      <>
 
+      <Global backgroundImg={this.state.background}/>
+      {this.state.view === 'landing' && <Landing loginVal={this.loginVal} submit={this.loginSubmitButton} goHome={this.goHome} user={this.state.user} changeUser={this.changeUser} userErr={this.state.userErr} exit={this.exitModal} loginButton={this.loginButton} login={this.state.loginModal}/>}
+      {this.state.view === 'home' && <Homepage loginVal={this.loginVal} submit={this.loginSubmitButton} goProfile={this.goProfile} land={this.goLanding} user={this.state.user} changeUser={this.changeUser} userErr={this.state.userErr} view={this.state.view} goHome={this.goHome} loginButton={this.loginButton} login={this.state.loginModal} exit={this.exitModal}/>}
+
+
+      {/* <ProfileHome /> */}
+
+      {/*<Global backgroundImg={this.state.background}/>
+      {this.state.view === 'landing' && <Landing goHome={this.goHome} user={this.state.user} changeUser={this.changeUser}/>}
+      {this.state.view === 'home' && <Homepage goProfile={this.goProfile} land={this.goLanding} user={this.state.user} changeUser={this.changeUser}/>}
+    */}
+
+      </>
     )
   }
 }
