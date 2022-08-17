@@ -114,32 +114,40 @@ const updateBand = (data, updateData, followOrUnfollow, likeOrDislike, new_entry
 
   // add follower
   if (update.followedby && followOrUnfollow === 'follow') {
-    console.log('followOrUnfollow:', followOrUnfollow);
     update = { $push: update };
-    console.log('l.121', 'filter:', filter, 'update:', update);
   // remove follower
   } else if (update.followedby && followOrUnfollow=== 'unfollow') {
     update = { $pull: update };
   }
-
+  // like or unlike a version
   if (likeOrDislike === 'like') {
-    var newupdate = '';
     JamsBand.find({})
       .then(() => {
-        filter = {"bandname": data.bandname, "uploads.title": update.uploads.title, "uploads.version_history.version_name": update.uploads.version_history.version_name};
-        update = {$inc: {"uploads.$.version_history.$.likes": 1}};
-        console.log('filter:', filter, 'likeOrDislike:', likeOrDislike);
-        return JamsBand.findOneAndUpdate(filter, update);
+        filter = {"bandname": data.bandname, "uploads.musicName": data.musicName, "uploads.version_history.$[a1].version_name": data.version_name};
+        update = {$inc: {"uploads.$.version_history.$[a1].likes": 1}};
+        var arr ={
+          arrayFilters: [
+            { "a1.name": update.version_name },
+          ],
+        };
+        return JamsBand.findOneAndUpdate(filter, update, arr);
       })
+  } else if (likeOrDislike === 'unlike') {
+    JamsBand.find({})
+    .then(() => {
+      filter = {"bandname": data.bandname, "uploads.musicName": data.musicName, "uploads.version_history.$[a1].version_name": data.version_name};
+      update = {$inc: {"uploads.$.version_history.$[a1].likes": -1}};
+      var arr ={
+        arrayFilters: [
+          { "a1.name": update.version_name },
+        ],
+      };
+      return JamsBand.findOneAndUpdate(filter, update, arr);
+    })
   }
   return JamsBand.findOneAndUpdate(filter, update);
 };
 
-
 module.exports = router;
 
-{
-  "bandname": "Fire",
-  "followedby": "Jack",
-  "followOrUnfollow": "follow"
-}
+
