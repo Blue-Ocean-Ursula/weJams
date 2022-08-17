@@ -31,6 +31,7 @@ const fakeUsers = [
 		"following": ["Dua Lipa", "Candace"],
 		"followedby": ["Kai"],
 		"memberof": ["Butterflies", "Ice ages"],
+    "chatroom":["LawrenceCandace","BandButterflies"],
 		"uploads": [
       {
         "musicName": "I like HR",
@@ -84,6 +85,7 @@ const fakeUsers = [
   "following": ["Dua Lipa"],
   "followedby": ["Lawrence", "Kai"],
   "memberof": ["Butterflies"],
+  "chatroom": ["LawrenceCandace","BandButterflies"],
   "uploads": [
     {
       "musicName": "Dynamite",
@@ -122,6 +124,7 @@ const fakeUsers = [
   "following": ["Dua Lipa", "Lawrence", "Candace"],
   "followedby": ["Lawrence", "Kai"],
   "memberof": ["Ice ages"],
+  "chatroom": [],
   "uploads": [{
     "musicName": "randomSong",
     "description": "whatever!",
