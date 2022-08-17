@@ -17,24 +17,28 @@ class Signup extends React.Component {
         <button id='modalExit' onClick={this.props.exit}>X</button>
           <h1>Sign-Up</h1>
           <p>Please create a new username and password</p>
+          <form>
           <input
             type='text'
             placeholder='Username'
-            name='newUsername'
+            name='username'
             onChange={this.props.loginVal}
           />
+          <br/>
           <input
-            type='text'
+            type='password'
             placeholder='Password'
-            name='newPassword'
+            name='password'
             onChange={this.props.loginVal}
           />
+          <br/>
           <input
             type='text'
             placeholder='E-Mail'
             name='newEmail'
             onChange={this.props.loginVal}
           />
+          </form>
           <button onClick={this.props.submit}>Submit</button>
         </div>
       </div>

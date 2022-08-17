@@ -30,20 +30,22 @@ class Login extends React.Component {
         <div className='landingModalContainer'>
         <button id='modalExit' onClick={this.props.exit}>X</button>
         <h1>Login </h1>
+        <form>
         <input
           type='text'
           placeholder='Username'
           name='username'
           onChange={this.props.loginVal}
-        />
+        /><br/>
         <input
-          type='text'
+          type='password'
           placeholder='Password'
           name='password'
           onChange={this.props.loginVal}
         />
+        </form>
         <button onClick={this.props.submit}>Submit</button>
-        {this.props.userErr && <span style={{'color':'red'}}>errr message here</span>}
+        {this.props.userErr && <span style={{'color':'red'}}>Error in Username or Password, please try again.</span>}
         </div>
       </div>
 

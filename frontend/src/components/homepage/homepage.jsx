@@ -153,7 +153,7 @@ class Homepage extends React.Component {
     return (
       <>
         <div className='homepage-container'>
-          <Navbar land={this.props.land} user={this.props.user} />
+          <Navbar land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login}/>
           <div className='homepage-userinfo-container'>
             <img className='usersphoto' src='https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp' alt='profile' />
             <h4 className='username-h4'>Username</h4>
