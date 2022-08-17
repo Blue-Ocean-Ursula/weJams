@@ -1,5 +1,5 @@
 import React from 'react';
-//import CreateBandModal from "./UploadBandModal.jsx";
+import axios from 'axios';
 
 class BandModal extends React.Component {
   constructor(props) {
@@ -18,25 +18,45 @@ class BandModal extends React.Component {
   //put req to db with new audio upload
   //function that will allow user to upload version
   handleCreateBand = () => {
-    if (this.state.uploadModal === false) {
-      this.setState({
-        createModal: true
-      })
-    } else {
-      this.setState({
-        createModal: false
-      })
-    }
     //TODO:
-    //axios post request to database with info for current edit
+    //axios post request to database with info for creating band
+
+    axios({
+      method: 'post',
+      url: 'http://localhost:3005/band/',
+      data :
+      {
+        bandname: "new band",
+        bio:  "We are a new band",
+        avatar: "https://robohash.org/minimaetvoluptatum.png?size=50x50&set=set1",
+        genre: ["pop"],
+        followers: ["follower1"],
+        following: ["otherBand1", "otherBand2"],
+        uploads: [
+          {
+            musicName: "new song1",
+            version_history:
+          {
+            version_name: "Version1",
+            description: "new description",
+            url: "http://aweaewawe/wasd.com/weaa12353",
+            likes: 0,
+            createdAt: "Wed Aug 17 2021 11:21:26"
+          }
+       }
+      ],
+        timeline: {
+          time: "Fri Aug 05 2021 11:21:26",
+          action: "Started the new band",
+          collaborator: "wE are a new band"
+        },
+        members: ["new member1", "new member2"]
+      }
+     })
+
 
   }
 
-
-  handleDownload = () => {
-    //TODO:
-    //hanlde down load for each individual edit
-  }
 
 
   render() {
