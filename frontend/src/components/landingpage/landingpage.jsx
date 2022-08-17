@@ -120,12 +120,6 @@ class Landing extends React.Component {
           <button onClick={this.signUpButton} className='landpage-buttons'>Sign Up</button>
         </div>
       </div>
-      {/* <div>
-        <VersionControl/>
-      </div> */}
-      <div>
-        <BandModal/>
-      </div>
       </div>
 
     )
