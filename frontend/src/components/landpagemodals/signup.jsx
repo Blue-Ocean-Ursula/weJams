@@ -7,7 +7,7 @@ class Signup extends React.Component {
   }
   render() {
     return (
-      <div className='landingModalBackground'>
+      <div className='lPModalBackground'>
         <div className='lPModalContainer'>
           <div className="modalTopRow">
             <div className="orangeText24">
