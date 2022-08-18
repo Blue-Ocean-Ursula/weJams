@@ -27,16 +27,16 @@ class Signup extends React.Component {
               <input
                 type='text'
                 placeholder='Username'
-                name='newUsername'
+                name='username'
                 onChange={this.props.loginVal}
                 className="forms"
               />
             </form>
             <form>
               <input
-                type='text'
+                type='password'
                 placeholder='Password'
-                name='newPassword'
+                name='password'
                 onChange={this.props.loginVal}
                 className="forms"
               />
