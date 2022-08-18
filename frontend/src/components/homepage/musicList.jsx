@@ -1,14 +1,10 @@
 import React from 'react';
-
 class HPMusicList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
     }
   }
-
-
   render() {
     return (
       <div className="versionItem">
@@ -48,5 +44,4 @@ class HPMusicList extends React.Component {
     )
   }
 }
-
 export default HPMusicList;

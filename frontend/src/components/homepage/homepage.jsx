@@ -144,6 +144,7 @@ class Homepage extends React.Component {
     } else if (this.state.loggedInUser !== null) {
       return (
         <>
+        {this.state.VCShow && <VersionControl version={this.state.currentVersion} close={this.handleClose}/>}
         <Navbar land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view}/>
           <div className='homepage-container'>
 

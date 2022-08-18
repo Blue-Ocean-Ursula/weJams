@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from '../landpagemodals/login.jsx';
+
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -9,9 +10,11 @@ class Navbar extends React.Component {
       userErr: false
     }
   }
+
 searchButton = (e) => {
   alert('this doesn\'t work yet');
 }
+
   render() {
     var log, home;
     if (this.props.user === 'Guest') {
@@ -42,7 +45,9 @@ searchButton = (e) => {
     )
   }
 }
+
 // reorder = () => {
+
 //   array.forEach((item) => {
 //     var temp1 = item;
 //     var index = Math.floor(Math.random() * array.length - 1);
@@ -51,4 +56,5 @@ searchButton = (e) => {
 //     array[index] = item;
 //   })
 //   }
+
 export default Navbar;
