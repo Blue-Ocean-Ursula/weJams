@@ -21,16 +21,17 @@
 }
 
 .vCModalContainer {
-  width: 750px;
+  width: auto;
   height: auto;
   background-color: rgb(46, 46, 46);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  justify-content: center;
+  padding: 15px;
   border-radius: 4px;
   position: absolute;
-  z-index: 1001;
+  z-index: 1003;
 }
 
 .vItemTopRow {
@@ -47,8 +48,9 @@
 
 /*------------------------------------------  VERSION LIST  ------------------------------------------*/
 
-.versionList {
+.versionCList {
   padding: 0px;
+  height: auto;
 }
 
 .versionCItem {

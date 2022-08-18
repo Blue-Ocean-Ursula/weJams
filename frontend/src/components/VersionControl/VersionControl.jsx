@@ -57,7 +57,7 @@ class VersionControl extends React.Component {
             </div>
             {/* display component that lists the different versions of the project */}
             {/* render list here */}
-            <div className="versionList" >{versionList}</div>
+            <div className="versionCList" >{versionList}</div>
             <div>
               <button className="modalSubmitButton" onClick={this.handleClose}>upload new version</button>
             </div>
