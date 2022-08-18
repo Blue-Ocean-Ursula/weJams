@@ -136,6 +136,27 @@ const fakeUsers = [
     {"date": "Fri Aug 10 2022 10:21:26", "action": "Published a new song", "involvedName": "randomSong"},
     {"date": "Fri Aug 05 2021 11:21:26", "action": "Joined band",  "involvedName": "Ice ages"}]
 
+},
+{
+  "username": "Monica",
+  "bio": "Welcome to my channel!",
+  "avatar": "https://robohash.org/numquamnihilet.png?size=50x50&set=set1",
+  "category": ["pop music"],
+  "following": ["Dua Lipa", "Lawrence", "Candace"],
+  "followedby": ["Lawrence", "Kai"],
+  "memberof": [],
+  "chatroom": [],
+  "uploads": [{
+    "musicName": "randomSong",
+    "description": "whatever!",
+    "url": "http://aweaewawe/wasd.com/weaa25343",
+    "likes": 30,
+    "createdAt": "Fri Aug 10 2022 10:21:26"}],
+  "timeline": [
+    {"date": "Fri Aug 10 2020 10:21:26", "action": "Joined in the community", "involvedName": null},
+    {"date": "Fri Aug 10 2022 10:21:26", "action": "Published a new song", "involvedName": "randomSong"},
+    {"date": "Fri Aug 05 2021 11:21:26", "action": "Joined band",  "involvedName": "Ice ages"}]
+
 }
 ]
 
