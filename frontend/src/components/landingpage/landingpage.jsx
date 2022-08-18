@@ -1,82 +1,71 @@
 import React from 'react';
-// import Homepage from '../homepage/homepage.jsx';
 import Login from '../landpagemodals/login.jsx';
 import Signup from '../landpagemodals/signup.jsx';
 import axios from 'axios';
-// import signupSubmitButton from 'landingpage.jsx';
+//import VersionControl from '../VersionControl/VersionControl.jsx';
+import BandModal from '../profilepage/CreateBandModal.jsx';
 
 class Landing extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loginModal: null,
       signupModal: null,
-      username: null,
       password: null,
-      newUsername: null,
-      newPassword: null,
-      newEmail: null,
-      userErr: null,
-      passErr: null,
+      username: null,
+      newEmail: null
     }
   }
 
-  loginButton = (e) => {
-    this.setState({
-      loginModal: true
-    })
-  }
-
-  loginSubmitButton = (e) => {
-    var user = this.state.username;
-    var password = this.state.password;
-    axios({
-      method: "post",
-      data: {
-        username: user,
-        password: password,
-      },
-      withCredentials: true,
-      url: 'http://localhost:3005/account/login'
-    })
-    .then((res) => {
-      if (res.data === 'successfully authenticated') {
-        this.props.changeUser(user);
-        this.props.goHome();
-      } else {
-        this.setState({
-          userErr: true
-        })
-      }
-    })
-  }
-
   signUpButton = (e) => {
+  // onClick => open a model with options for username, email, password
     this.setState({
       signupModal: true,
     })
   }
 
+
+  exitModal = (e) => {
+    this.setState({
+      signupModal: false,
+    })
+  }
+
   signupSubmitButton = (e) => {
-    var user = this.state.username;
-    var password = this.state.password;
-    var email = this.state.newEmail;
+      var user = this.state.username;
+      var password = this.state.password;
+      var email = this.state.newEmail;
+
+      axios({
+        method: "post",
+        data: {
+          username: user,
+          password: password,
+          email: email,
+        },
+        withCredentials: true,
+        url: 'http://localhost:3005/account/register'
+      })
+      .then((res) => {
+        if (res.data === "User Created") {
+          this.props.changeUser(user);
+            this.props.goHome();
+        }
+      })
+    // on submit, check database for username,
+    // if no user in database, put user data into database, bring user to homepage
+    // else if user is in database already, "That username already exists. Please try another username"
+    e.preventDefault();
     axios({
       method: "post",
       data: {
-        username: user,
-        password: password,
-        email: email,
+        username: this.state.newUsername,
+        password: this.state.newPassword,
+        email: this.state.newEmail,
       },
       withCredentials: true,
-      url: 'http://localhost:3005/account/register'
+      url: 'http://localhost:3005/register'
     })
-    .then((res) => {
-      if (res.data === "User Created") {
-        this.props.changeUser(user);
-          this.props.goHome();
-      }
-    })
+      .then((res) => { console.log(res) })
   }
 
   loginVal = (e) => {
@@ -87,28 +76,30 @@ class Landing extends React.Component {
     })
   }
 
-  exitModal = (e) => {
-    this.setState({
-      loginModal: false,
-      signupModal: false,
-    })
-  }
-
   render() {
     return (
+      <div>
+      <div>
       <div className='mainLanding'>
+        {this.props.login && <Login open={this.state.loginModal} changeUser={this.props.changeUser} loginVal={this.props.loginVal} submit={this.props.submit} userErr={this.props.userErr} passErr={this.state.passErr} exit={this.props.exit}/>}
+        {this.state.signupModal && <Signup loginVal={this.loginVal} submit={this.signupSubmitButton} exit={this.exitModal}/>}
         <h1 id='weTitle'>WeJamz</h1>
-        <button onClick={this.loginButton} className='landpage-buttons'>Login</button>
+        <div className="buttonsRowLp">
+        <button onClick={this.props.loginButton} className='landpage-buttons'>Login</button>
         <button onClick={this.signUpButton} className='landpage-buttons'>Sign Up</button>
         <button onClick={this.props.goHome} className='landpage-buttons'>Continue as Guest</button>
-        {this.state.loginModal && <Login open={this.state.loginModal} changeUser={this.props.changeUser} loginVal={this.loginVal} submit={this.loginSubmitButton} userErr={this.state.userErr} passErr={this.state.passErr} exit={this.exitModal}/>}
-        {this.state.signupModal && <Signup loginVal={this.loginVal} submit={this.signupSubmitButton} exit={this.exitModal}/>}
+        </div>
+        </div>
       </div>
-
+      </div>
     )
   }
 }
 
 export default Landing;
+
+
+
+
 
 

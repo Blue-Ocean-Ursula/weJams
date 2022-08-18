@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Mont';
+  src: url("./src/font/MontserratAlternates-Regular.ttf") format('.ttf');
+  src: url("./src/font/MontserratAlternates-Regular.ttf") format('truetype')
+
+}
+
+/*------------font-----------*/
+
+
 /*==========Tag Styling==========*/
 button {
   margin: 0vh 1vh 0vh 1vh;
@@ -40,63 +50,113 @@ input {
   margin-top: 1vh;
   color: white;
 }
-#modalExit {
+/* #modalExit {
   width: fit-content;
-}
+} */
 /*==========Landing Page==========*/
 .mainLanding {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+
 }
-#weTitle {
-  color: aliceblue;
+
+.weTitle {
+  color: rgb(89, 0, 255);
   font-size: 150pt;
   text-align: center;
+  padding-top: 0px;
   font-family: cursive;
+  text-shadow: rgb(0, 0, 0) 10px 10px 30px;
 }
+
 .landpage-buttons {
   border: 0;
-  color: red;
-  font-size: 40px;
+  color: rgb(89, 0, 255);
+  font-size: 30px;
   font-weight: bold;
   background-color: rgba(0, 0, 0, 0);
-  text-align: center;
+  text-shadow: rgb(0, 0, 0) 0px 5px 15px;
 }
+
 .landpage-buttons:hover {
-  color: blue;
-  transition-duration: 1s;
+  color: rgb(190, 147, 255);
+  transition-duration: .5s;
+}
+
+.buttonsRowLp {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 105px;
+  margin-left: 70px;
+  margin-right: 50px;
 }
 
 .landingModalBackground {
-  width: 100vw;
-  height: 100vh;
   display: flex;
   background-color: rgba(0, 0, 0, .5);
   justify-content: center;
   align-items: center;
+  z-index: 1001;
+  padding-top: 10em;
+  margin-left: 52em;
+  margin-bottom: 100em;
+  justify-content: center;
   position: absolute;
 }
 
 .landingModalContainer {
-  width: 750px;
+  /* width: 750px;
   height: auto;
   background-color: rgb(240, 245, 249);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
   padding: 25px;
+  margin-bottom: 165px;
+  border-radius: 4px;
+  z-index: 1002;
+  position: absolute; */
+  width: auto;
+  height: auto;
+  background-color: rgb(46, 46, 46);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
   border-radius: 4px;
   position: absolute;
-  z-index: 1001;
+  z-index: 1003;
 }
+
+.formsLp {
+  width: 45em;
+  margin-top: 10px;
+  height: 20px;
+  background-color: rgb(177, 177, 177);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 3px;
+  border-width: 0px;
+}
+
+.modalSubmitButtonLp {
+  background-color: rgb(141, 21, 21);
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-width: 0;
+  border-radius: 8px;
+  font-size: 10pt;
+  color: rgb(255, 115, 0);
+  font-weight: bold;
+  margin-top: 10px;
+  display: flex;
+}
+
 
 /*==========homepage==========*/
 .homePage {
   background: white;
 }
+
 .homepage-userinfo-container {
   display: flex;
   flex-direction: column;
@@ -214,10 +274,24 @@ input {
   padding-right: 420px;
   padding-bottom: 270px;
   position: absolute;
+  z-index: 800;
 }
 
 .vCModalContainer {
-  width: 750px;
+  width: auto;
+  height: auto;
+  background-color: rgb(46, 46, 46);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1001;
+}
+
+.lPModalContainer {
+  width: auto;
   height: auto;
   background-color: rgb(46, 46, 46);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -249,23 +323,32 @@ input {
   margin: 0;
 }
 
+.modalTitle {
+  padding-bottom: 10px;
+}
+
 /*------------------------------------------  VERSION LIST  ------------------------------------------*/
 
 .versionList {
+  display: flex;
   padding: 25px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .versionItem {
   width: auto;
   height: auto;
   padding: 10px;
-  max-width: 40%;
+  min-width: 40%;
   /* border-style: solid; */
   /* border-color: black; */
   background-color: rgb(91, 91, 91);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 10px;
   margin: 10px;
+  /* z-index: 0; */
 }
 
 .homepage-userlist-div {
@@ -273,7 +356,8 @@ input {
   width: auto;
   height: auto;
   padding: 10px;
-  max-width: 40%;
+  min-width: 30%;
+  /* max-width: 40%; */
   /* border-style: solid; */
   /* border-color: black; */
   /* flex-direction: row; */
@@ -301,7 +385,7 @@ input {
 }
 
 .uploadModalContainer {
-  width: 600px;
+  width: auto;
   height: auto;
   background-color: rgb(91, 91, 91);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -367,15 +451,63 @@ input {
   font-weight: bold;
 }
 
+.modalCloseButton {
+  background-color: rgb(46, 46, 46);
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding: 2px;
+  height: 15px;
+  width: 15px;
+  border-width: 0;
+  border-radius: 5px;
+  font-size: 15pt;
+  font-weight: bold;
+  color: rgb(89, 0, 255);
+}
+
+.modalCloseButton:hover {
+  color: rgb(195, 162, 255);
+}
+
+.modalSubmitButton {
+  background-color: rgb(46, 46, 46);
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  border-width: 0;
+  border-radius: 8px;
+  font-size: 15pt;
+  color: rgb(89, 0, 255);
+  font-weight: bold;
+  margin-top: 10px;
+  display: flex;
+}
+
+.modalSubmitButton:hover {
+  color: rgb(195, 162, 255);
+}
+
+.forms {
+  width: 45em;
+  margin-top: 10px;
+  height: 20px;
+  background-color: rgb(177, 177, 177);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 3px;
+  border-width: 0px;
+}
 
 /*--------------------------------------------  TEXT  -----------------------------------------------*/
 
 .orangeText24 {
-  color: rgb(255, 115, 0);
+  color: rgb(89, 0, 255);
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
   font-size: 24pt;
   font-weight: bold;
   padding-bottom: 5px;
+}
+
+.signUpMline2 {
+  color: rgb(195, 162, 255);
 }
 
 .orangeText10 {
@@ -427,4 +559,11 @@ input {
   flex-direction: column;
   align-content: center;
   justify-content: center;
+}
+
+.homepage-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
 }

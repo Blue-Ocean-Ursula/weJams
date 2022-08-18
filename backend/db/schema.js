@@ -17,6 +17,7 @@ const jamsUser = new mongoose.Schema(
     following: Array,
     followedby: Array,
     memberof: Array,
+    chatroom: Array,
     uploads: [
       {
         title: String,
@@ -75,8 +76,8 @@ const jamsChat = new mongoose.Schema(
     members: Array,
     chats: [
       {
-        timestamp: String,
-        username: String,
+        time: String,
+        user: String,
         comment: String
       }
     ]

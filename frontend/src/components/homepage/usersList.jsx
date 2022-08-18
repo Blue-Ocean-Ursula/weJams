@@ -12,7 +12,7 @@ class HPUsersList extends React.Component {
     const userUploads = this.props.uploads.map((uploaded, i) => (
       // console.log(uploaded.version_history);
       uploaded.version_history.map((song) => (
-        <div style={{padding: 2, fontSize: 15}}>{song.version_name}</div>
+        <div key={Math.random()} style={{padding: 2, fontSize: 15}}>{song.version_name}</div>
       ))
     ));
     return (
@@ -28,7 +28,6 @@ class HPUsersList extends React.Component {
           <button className="requestButton">Request Collaboration</button>
         </div>
       </div>
-
     )
   }
 }

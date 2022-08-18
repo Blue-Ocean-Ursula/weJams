@@ -1,14 +1,19 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const axios = require('axios');
 const {fakeAuths, fakeBands, fakeChats, fakeUsers} = require('./fakeData.js')
 const {JamsAuth, JamsUser, JamsBand, JamsChat} = require('./schema.js');
-
+const username = process.env.username;
+const key = process.env.key;
 mongoose.connect(`mongodb+srv://<username>:<your key>@blueocean.5pe6ny1.mongodb.net/?retryWrites=true&w=majority`, {
   useNewUrlParser:true,
   useUnifiedTopology: true,
 },
-()=> {
-  console.log('Mongoose Is Connected')
+(err)=> {
+  if (err) {
+    console.log(err)
+  } else {
+  console.log('Mongoose Is Connected')}
 })
 
 var importFakeData = async function(fakeBands, fakeChats, fakeUsers) {
