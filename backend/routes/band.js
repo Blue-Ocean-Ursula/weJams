@@ -3,6 +3,14 @@ const router = express.Router();
 const {JamsBand} = require('./../db/schema.js')
 
 // ROUTES
+router.post('/', async (req, res) => {
+  try {
+    const data = await JamsBand.create(req.body);
+    res.status(200).send(await JamsBand.find({}));
+  } catch (error) {
+    console.log('error in create new band!:', error);
+  }
+});
 
 router.get('/', async (req, res) => {
   try {
@@ -28,14 +36,6 @@ router.delete('/', (req, res) => {
     .catch((err) => {throw err;})
 })
 
-router.post('/', async (req, res) => {
-  try {
-    const data = await JamsBand.create(req.body);
-    res.status(200).send(await JamsBand.find({}));
-  } catch (error) {
-    console.log('error!:', error);
-  }
-});
 
 router.post('/uploads', ((req, res) => {
   var data = req.body;
@@ -81,15 +81,16 @@ const addNewSong = (data) => {
   var filter = {"bandname": data.bandname};
   console.log('filter:', filter);
   var song = {
-    musicName: "new butterly song",
+    musicName: data.musicName,
     version_history: {
-    version_name: "Original",
-    description: "fly",
-    url: "http://aweaewawe/wasd.com/weaa12353",
-    likes: 4,
-    createdAt: "Wed Aug 17 2021 11:21:26"
+    version_name: data.version_history.version_name,
+    description: data.version_history.description,
+    url: data.version_history.url,
+    likes: data.version_history.likes,
+    createdAt: data.version_history.createdAt
     }
   };
+
   console.log('song:', song);
   var update = {$push: {'uploads': song}};
   return JamsBand.findOneAndUpdate(filter, update);

@@ -47,7 +47,6 @@ router.post('/register', async (req, res) => {
       await newUser.save();
       res.status(201).send('User Created')
     }
-
   }
   catch(err) {
     console.log(err)
@@ -82,7 +81,7 @@ router.get('/getUserByFilter', async (req, res) => {
 
         res.status(200).send(userInfo)
       } catch(err) {
-      console.log(err)
+      console.log("*****",err)
       res.status(404).send(err)
     }
   // } else {

@@ -18,8 +18,8 @@ mongoose.connect(`mongodb+srv://${process.env.ATLAS_USERNAME}:${process.env.ATLA
   useNewUrlParser:true,
   useUnifiedTopology: true,
 },
-()=> {
-    console.log('Mongoose Is Connected')
+(err)=> {
+    console.log('Mongoose Is Connected', err)
 })
 
 app.set('views', path.join(__dirname, 'views'));
@@ -52,12 +52,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-catch 404 and forward to error handler
+// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-error handler
+// error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
