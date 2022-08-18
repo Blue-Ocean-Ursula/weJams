@@ -5,15 +5,14 @@ import PhotoSection from './userPhotoSection/userPhotoSection.jsx';
 import BioSection from './userBioSection/bioIndex.jsx';
 import Uploads from './userUploadsSection/uploadsIndex.jsx';
 
-const ProfileHome = () => {
+const ProfileHome = (props) => {
+  /*State*/
   return (
     <>
     <Navbar />
     <PhotoSection />
     <BioSection />
     <Uploads />
-
-
     </>
   )
 };
