@@ -14,23 +14,23 @@ import {
   ImgWrp,
   Img,
 } from './bioElements.jsx';
-import profileObjOne from '../userBioSection/bioData.jsx';
-const BioSection = (lightBg,
+
+
+const BioSection = (
+  props,
+  lightBg,
   id,
   imgStart,
-  username,
   lightText,
-  category,
   darkText,
   bio,
   buttonLabel,
-  img,
   alt,
   primary,
   dark,
   dark2
   ) => {
-  console.log('username: ', username)
+
   return (
     <>
       <BioContainer lightBg={'lightBg'} id={'id'}>
@@ -38,11 +38,11 @@ const BioSection = (lightBg,
           <BioRow imgStart={'imgStart'}>
             <Column1>
               <TextWrapper>
-                <TopLine>{profileObjOne['username']}</TopLine>
+                <TopLine>{props.currentUserData.username}</TopLine>
                 <Heading lightText={'lightText'}>
-                  {profileObjOne['category']}
+                  {props.currentUserData.category}
                 </Heading>
-                <Subtitle darkText={'darkText'}>{profileObjOne['bio']}</Subtitle>
+                <Subtitle darkText={'darkText'}>{props.currentUserData.bio}</Subtitle>
                   <BtnWrp>
                     <Button to='home'
                     smooth={true}
@@ -53,15 +53,13 @@ const BioSection = (lightBg,
                     primary={primary ? 1 : 0}
                     dark={dark ? 1 : 0}
                     dark2={dark2 ? 1 : 0}
-
-
                     >{buttonLabel}</Button>
                   </BtnWrp>
               </TextWrapper>
             </Column1>
             <Column2>
               <ImgWrp>
-                <Img src={profileObjOne['avatar']} alt={alt}/>
+                <Img src={props.currentUserData.avatar} alt={alt}/>
               </ImgWrp>
             </Column2>
           </BioRow>
