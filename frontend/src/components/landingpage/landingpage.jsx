@@ -86,8 +86,8 @@ class Landing extends React.Component {
         <h1 className='weTitle'>WeJamz</h1>
         <div className="buttonsRowLp">
         <button onClick={this.props.loginButton} className='landpage-buttons'>Login</button>
-        <button onClick={this.signUpButton} className='landpage-buttons'>Sign Up</button>
         <button onClick={this.props.goHome} className='landpage-buttons'>Continue as Guest</button>
+        <button onClick={this.signUpButton} className='landpage-buttons'>Sign Up</button>
         </div>
         </div>
       </div>

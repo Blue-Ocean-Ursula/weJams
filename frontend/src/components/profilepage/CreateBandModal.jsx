@@ -39,7 +39,7 @@ class BandModal extends React.Component {
           time: "Fri JUl 12 2021 11:21:26",
           action: "Started the new band",
           involvedName: "BUtterflies"}]
-  }})
+      }})
 
 
   }

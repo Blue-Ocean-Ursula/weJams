@@ -333,6 +333,8 @@ input {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 30em;
+  overflow: auto;
 }
 
 .versionItem {

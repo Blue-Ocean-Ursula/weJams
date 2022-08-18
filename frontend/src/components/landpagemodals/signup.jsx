@@ -7,6 +7,7 @@ class Signup extends React.Component {
   }
   render() {
     return (
+      <div className='landingModalBackground'>
         <div className='lPModalContainer'>
           <div className="modalTopRow">
             <div className="orangeText24">
@@ -48,6 +49,7 @@ class Signup extends React.Component {
           </div>
           <div>
             <button className="modalSubmitButton" onClick={this.props.submit}>Submit</button>
+            </div>
           </div>
         </div>
     )
