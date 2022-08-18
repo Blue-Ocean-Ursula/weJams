@@ -27,7 +27,8 @@ router.get('/:chatId', async (req, res) => {
 router.post('/:chatId', async (req, res) => {
   try {
     var chats = (await JamsChat.find({chat_id: req.params.chatId}))[0].chats
-    chats.push({time: req.body.time, user: req.body.user, comment: req.body.comment})
+    chats.push({time: 'abcde', user: req.body.user, comment: req.body.comment})
+    console.log(chats);
     await JamsChat.findOneAndUpdate({chat_id: req.params.chatId},{chats: chats}, {
       new: true,
       upsert: true,
@@ -36,9 +37,6 @@ router.post('/:chatId', async (req, res) => {
   } catch (err) {
     console.log("***Error in sending a new chat history, ", err)
   }
-
-
-
 });
 
 module.exports = router;
