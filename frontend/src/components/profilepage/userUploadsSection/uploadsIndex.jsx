@@ -3,33 +3,16 @@ import {
   UploadsContainer,
   UploadsH1,
   UploadsWrapper,
-  UploadsCard,
-  UploadsIcon,
-  UploadsH2,
-  UploadsP
 } from './uploadsElements.jsx';
 import icon1 from '../profileResources/icon1.svg';
+import UploadCard from './uploadsCard.jsx';
 
-const Uploads = () => {
+const Uploads = (props) => {
   return (
     <UploadsContainer id="uploads">
-      <UploadsH1>Upload Title</UploadsH1>
+      <UploadsH1>My Uploads</UploadsH1>
       <UploadsWrapper>
-        <UploadsCard>
-          <UploadsIcon src={icon1} />
-          <UploadsH2>Band For Upload</UploadsH2>
-          <UploadsP>Description of the upload</UploadsP>
-        </UploadsCard>
-        <UploadsCard>
-          <UploadsIcon src={icon1} />
-          <UploadsH2>Band For Upload</UploadsH2>
-          <UploadsP>Description of the upload</UploadsP>
-        </UploadsCard>
-        <UploadsCard>
-          <UploadsIcon src={icon1} />
-          <UploadsH2>Band For Upload</UploadsH2>
-          <UploadsP>Description of the upload</UploadsP>
-        </UploadsCard>
+          <UploadCard currentUserData={props.currentUserData} />
       </UploadsWrapper>
     </UploadsContainer>
   )

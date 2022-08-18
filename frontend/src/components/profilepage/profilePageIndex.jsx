@@ -6,9 +6,7 @@ import BioSection from './userBioSection/bioIndex.jsx';
 import Uploads from './userUploadsSection/uploadsIndex.jsx';
 
 const ProfileHome = (props) => {
-  /*State*/
-  const [currentUserData, setCurrentUserData] = useState(props.currentUserData);
-  const [userData, setUserData] = useState({});
+
 
 
   return (
@@ -16,7 +14,7 @@ const ProfileHome = (props) => {
     <Navbar />
     <PhotoSection />
     <BioSection currentUserData={props.currentUserData} />
-    <Uploads />
+    <Uploads currentUserData={props.currentUserData} />
     </>
   )
 };
