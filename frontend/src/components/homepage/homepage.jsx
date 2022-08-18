@@ -10,7 +10,7 @@ class Homepage extends React.Component {
     super(props);
     this.state = {
       users: [],
-
+      allusers: [],
       uploads: [],
       VCShow: false,
       currentVersion: ''
@@ -89,7 +89,7 @@ class Homepage extends React.Component {
     this.setState({
       VCShow: true,
     })
-  };
+  }
 
 
   handleClose = () => {
@@ -134,10 +134,33 @@ class Homepage extends React.Component {
 
   search = (e) => {
     var val = e.target.value;
+    console.log(val);
     this.setState({
       search: val
     })
+    this.getFiltered()
   }
+
+
+  getFiltered = (e) => {
+    // this.getAllUsers();
+    var search = this.state.search;
+    var users = this.state.allusers;
+    var newUsers = [];
+    if (users.length > 0) {
+      users.forEach((user) => {
+        if (user.username.toLowerCase().includes(search.toLowerCase())) {
+          newUsers.push(user)
+        }
+      })
+      if (newUsers.length > 0) {
+        this.setState({
+          users: newUsers
+        })
+      }
+    }
+  }
+
 
   render() {
     // let newUploads = this.state.uploads;
@@ -164,7 +187,7 @@ class Homepage extends React.Component {
       return (
         <>
           {this.state.VCShow && <VersionControl version={this.state.currentVersion} close={this.handleClose} />}
-          <Navbar filter={this.getFiltered} search={this.search} land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view} />
+          <Navbar reorder={this.reorder} search={this.search} land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view} />
           <div className='homepage-container'>
 
             <div className='homepage-userinfo-container'>
