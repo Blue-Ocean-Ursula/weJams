@@ -20,7 +20,7 @@ const jamsUser = new mongoose.Schema(
     chatroom: Array,
     uploads: [
       {
-        title: String,
+        musicName: String,
         version_history:[
           {
             version_name: String,
