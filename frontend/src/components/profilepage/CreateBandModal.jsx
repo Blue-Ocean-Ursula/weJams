@@ -5,8 +5,10 @@ class BandModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
-
+      band: '',
+      bio: '',
+      genre: '',
+      avatar: ''
     }
   }
 
@@ -26,33 +28,18 @@ class BandModal extends React.Component {
       url: 'http://localhost:3005/band/',
       data :
       {
-        bandname: "new band",
-        bio:  "We are a new band",
-        avatar: "https://robohash.org/minimaetvoluptatum.png?size=50x50&set=set1",
-        genre: ["pop"],
-        followers: ["follower1"],
-        following: ["otherBand1", "otherBand2"],
-        uploads: [
-          {
-            musicName: "new song1",
-            version_history:
-          {
-            version_name: "Version1",
-            description: "new description",
-            url: "http://aweaewawe/wasd.com/weaa12353",
-            likes: 0,
-            createdAt: "Wed Aug 17 2021 11:21:26"
-          }
-       }
-      ],
-        timeline: {
-          time: "Fri Aug 05 2021 11:21:26",
+        bandname: this.state.band,
+        bio:  this.state.bio,
+        category: [this.state.genre],
+        avatar: this.state.avatar,
+        followedby: [],
+        members: [],
+        uploads: [],
+        timeline: [{
+          time: "Fri JUl 12 2021 11:21:26",
           action: "Started the new band",
-          collaborator: "wE are a new band"
-        },
-        members: ["new member1", "new member2"]
-      }
-     })
+          involvedName: "BUtterflies"}]
+      }})
 
 
   }
@@ -60,8 +47,6 @@ class BandModal extends React.Component {
 
 
   render() {
-
-
     return (
       <>
         <div className="vCModalBackground">
@@ -76,7 +61,7 @@ class BandModal extends React.Component {
             </div>
             <div>
               <form>
-                <input className="forms" onChange={(e) => { this.setState({ url: e.target.value }) }}></input>
+                <input className="forms" onChange={(e) => { this.setState({ band: e.target.value }) }}></input>
               </form>
               <div className="orangeText10">
                 band name
@@ -84,7 +69,7 @@ class BandModal extends React.Component {
             </div>
             <div>
               <form>
-                <input className="forms" onChange={(e) => { this.setState({ url: e.target.value }) }}></input>
+                <input className="forms" onChange={(e) => { this.setState({ bio: e.target.value }) }}></input>
               </form>
               <div className="orangeText10">
                 bio
@@ -92,10 +77,18 @@ class BandModal extends React.Component {
             </div>
             <div>
               <form>
-                <input className="forms" onChange={(e) => { this.setState({ url: e.target.value }) }}></input>
+                <input className="forms" onChange={(e) => { this.setState({ genre: e.target.value }) }}></input>
               </form>
               <div className="orangeText10">
                 genre
+              </div>
+            </div>
+            <div>
+              <form>
+                <input className="forms" onChange={(e) => { this.setState({ avatar: e.target.value }) }}></input>
+              </form>
+              <div className="orangeText10">
+                avatar
               </div>
             </div>
             <div>

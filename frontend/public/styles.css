@@ -255,7 +255,6 @@ input {
 
 .versionControl {
   border-style: solid;
-  border-color: black;
   background-color:  rgb(46, 46, 46);
   height: 40em;
   width: 75%;
@@ -268,7 +267,6 @@ input {
   width: 100vw;
   height: 100vh;
   display: flex;
-  background-color: black;
   justify-content: center;
   align-items: center;
   padding-right: 420px;
@@ -335,6 +333,8 @@ input {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 25em;
+  overflow: auto;
 }
 
 .versionItem {
