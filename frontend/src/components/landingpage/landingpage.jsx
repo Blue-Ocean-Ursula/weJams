@@ -83,11 +83,11 @@ class Landing extends React.Component {
       <div className='mainLanding'>
         {this.props.login && <Login open={this.state.loginModal} changeUser={this.props.changeUser} loginVal={this.props.loginVal} submit={this.props.submit} userErr={this.props.userErr} passErr={this.state.passErr} exit={this.props.exit}/>}
         {this.state.signupModal && <Signup loginVal={this.loginVal} submit={this.signupSubmitButton} exit={this.exitModal}/>}
-        <h1 id='weTitle'>WeJamz</h1>
+        <h1 className='weTitle'>WeJamz</h1>
         <div className="buttonsRowLp">
         <button onClick={this.props.loginButton} className='landpage-buttons'>Login</button>
-        <button onClick={this.signUpButton} className='landpage-buttons'>Sign Up</button>
         <button onClick={this.props.goHome} className='landpage-buttons'>Continue as Guest</button>
+        <button onClick={this.signUpButton} className='landpage-buttons'>Sign Up</button>
         </div>
         </div>
       </div>
