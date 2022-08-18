@@ -71,6 +71,25 @@ router.get('/getUser', async (req, res) => {
   }
 })
 
+router.get('/getUserByFilter', async (req, res) => {
+
+  if (req.user) {
+    try {
+      const userInfo = await JamsUser.find({$or: [
+        {username: {$regex: req.body.filter}},
+        {category: {$regex: req.body.filter}}
+      ]})
+
+        res.status(200).send(userInfo)
+      } catch(err) {
+      console.log(err)
+      res.status(404).send(err)
+    }
+  } else {
+    res.status(200).send('please log in first')
+  }
+})
+
 router.get('/getallUser', async (req, res) => {
   if (req.user) {
     try {
