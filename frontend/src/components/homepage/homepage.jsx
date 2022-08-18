@@ -13,7 +13,8 @@ class Homepage extends React.Component {
       loggedInUser: null,
       uploads: [],
       VCShow: false,
-      currentVersion: ''
+      currentVersion: '',
+
     }
   }
 
@@ -105,7 +106,6 @@ class Homepage extends React.Component {
     this.setState({
       VCShow: true,
     })
-
   };
 
 

@@ -63,7 +63,7 @@ class Landing extends React.Component {
         email: this.state.newEmail,
       },
       withCredentials: true,
-      url: 'http://localhost:3005/register'
+      url: 'http://localhost:3005/account/register'
     })
       .then((res) => { console.log(res) })
   }
