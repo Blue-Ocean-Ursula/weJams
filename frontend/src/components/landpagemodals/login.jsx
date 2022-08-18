@@ -36,6 +36,7 @@ class Login extends React.Component {
             </button>
           </div>
           <div>
+            <form>
             <input
               type='text'
               placeholder='Username'
@@ -44,12 +45,13 @@ class Login extends React.Component {
               className="forms"
             />
             <input
-              type='text'
+              type='password'
               placeholder='Password'
               name='password'
               onChange={this.props.loginVal}
               className="forms"
             />
+            </form>
           </div>
           <div>
             <button className="modalSubmitButton" onClick={this.props.submit}>Submit</button>
