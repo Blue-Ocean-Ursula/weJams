@@ -3,7 +3,6 @@ const router = express.Router();
 const {JamsBand} = require('./../db/schema.js')
 
 // ROUTES
-
 router.get('/', async (req, res) => {
   try {
     console.log('req.body.bandname', req.body.bandname);
@@ -90,7 +89,6 @@ const addNewSong = (data) => {
     createdAt: data.version_history.createdAt
     }
   };
-  console.log('song:', song);
   var update = {$push: {'uploads': song}};
   return JamsBand.findOneAndUpdate(filter, update);
 }
@@ -105,6 +103,7 @@ const addNewVersion = (data) =>  {
   }
   filter = {"bandname": data.bandname, "uploads.musicName": data.uploads.musicName};
   update = {$push: { "uploads.$.version_history": newEntry}}
+  console.log('filter:', filter, 'update:', update);
   return JamsBand.findOneAndUpdate(filter, update);
 }
 
