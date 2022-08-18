@@ -33,7 +33,7 @@ class App extends React.Component {
   goHome = (e) => {
     this.setState({
       view: 'home',
-      background: 'https://res.cloudinary.com/dktim9rur/image/upload/v1658162058/nyyag1xyh1z7akuep8px.gif'
+      background: 'https://res.cloudinary.com/dktim9rur/image/upload/v1660423540/DJ_Background_uayfxx.webp'
     })
   }
 

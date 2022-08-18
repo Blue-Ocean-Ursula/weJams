@@ -13,7 +13,7 @@ class HPMusicList extends React.Component {
             <div className="orangeText10">
               version:
             </div>
-            <div className="basicGray" onClick={this.props.seeVCModal} versionID={this.props.usersUploads._id}>{this.props.usersUploads.version_name}</div>
+            <div className="basicGray" onClick={this.props.seeVCModal} versionTag={this.props.usersUploads._id}>{this.props.usersUploads.version_name}</div>
           </div>
           <div className="lineup">
             <div className="orangeText10">

@@ -67,7 +67,7 @@ class Homepage extends React.Component {
           this.setState({
             uploads: uploadsArr,
           })
-         })
+        })
 
       })
   }
@@ -90,7 +90,7 @@ class Homepage extends React.Component {
   }
 
   seeVCModal = (e) => {
-    console.log(e.target.attributes[1].value);
+    console.log(e);
     this.state.users.forEach(user => {
       user.uploads.forEach(uploaded => {
         uploaded.version_history.forEach(song => {
@@ -121,10 +121,45 @@ class Homepage extends React.Component {
     }
   }
 
+  reorder = () => {
+    var users = this.state.users
+    var temp1, temp2;
+    for (var i = 0; i < users.length; i++) {
+      temp1 = users[i];
+      var index = Math.floor(Math.random() * users.length);
+      temp2 = users[index];
+      users[i] = temp2;
+      users[index] = temp1;
+    }
+    this.setState({
+      users: users
+    })
+    var uploads = this.state.uploads
+    var uptemp1, uptemp2;
+    for (var j = 0; j < uploads.length; j++) {
+      uptemp1 = uploads[i];
+      var random = Math.floor(Math.random() * uploads.length);
+      uptemp2 = uploads[random];
+      uploads[i] = uptemp2;
+      uploads[random] = uptemp1;
+      console.log(uploads, uptemp1, uptemp2, random)
+    }
+    this.setState({
+      uploads: uploads
+    })
+  }
+
+  search = (e) => {
+    var val = e.target.value;
+    this.setState({
+      search: val
+    })
+  }
+
   render() {
     // let newUploads = this.state.uploads;
     const musicList = this.state.uploads.map((uploaded2) => (
-      <HPMusicList key={Math.random()} seeVCModal={this.seeVCModal} usersUploads={uploaded2.version_history[0]}/>
+      <HPMusicList key={Math.random()} seeVCModal={this.seeVCModal} usersUploads={uploaded2.version_history[0]} />
     ));
     const usersList = this.state.users.map((user) => (
       <HPUsersList key={Math.random()} user={user} uploads={user.uploads} />
@@ -132,8 +167,8 @@ class Homepage extends React.Component {
     if ((this.props.user === 'Guest') || this.props.user === null) {
       return (
         <>
-        {this.state.VCShow && <VersionControl version={this.state.currentVersion} close={this.handleClose}/>}
-        <Navbar land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view}/>
+          {this.state.VCShow && <VersionControl version={this.state.currentVersion} close={this.handleClose} />}
+          <Navbar reorder={this.reorder} search={this.search} land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view} />
           <div className='homepage-container'>
 
             <div className="versionList">{usersList}</div>
@@ -144,8 +179,8 @@ class Homepage extends React.Component {
     } else if (this.state.loggedInUser !== null) {
       return (
         <>
-        {this.state.VCShow && <VersionControl version={this.state.currentVersion} close={this.handleClose}/>}
-        <Navbar land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view}/>
+          {this.state.VCShow && <VersionControl version={this.state.currentVersion} close={this.handleClose} />}
+          <Navbar filter={this.getFiltered} search={this.search} land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view} />
           <div className='homepage-container'>
 
             <div className='homepage-userinfo-container'>
