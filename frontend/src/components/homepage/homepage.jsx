@@ -10,11 +10,9 @@ class Homepage extends React.Component {
     super(props);
     this.state = {
       users: [],
-
       uploads: [],
       VCShow: false,
       currentVersion: '',
-
     }
   }
 
@@ -58,12 +56,7 @@ class Homepage extends React.Component {
             uploads: uploadsArr,
           })
         })
-
       })
-  }
-
-  goToRandomUsersProf = () => {
-    // when clicking a users profile pic or name, bring to that users profile
   }
 
   messageRandomUser = () => {
