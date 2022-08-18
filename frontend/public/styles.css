@@ -135,7 +135,7 @@ input {
 }
 
 
-/*==========homepage==========*/
+/*==========================================homepage====================================*/
 .homePage {
   background: white;
 }
@@ -232,7 +232,7 @@ input {
   flex-direction: row;
 }
 
-/*==========HPMusicList==========*/
+/*===========================================HPMusicList===============================================*/
 
 /*----------------------------------------  MAIN  -------------------------------------------------*/
 
@@ -311,21 +311,24 @@ input {
 /*------------------------------------------  VERSION LIST  ------------------------------------------*/
 
 .versionList {
+  border-style: solid;
+  border-color: gray;
+  border-radius: 5px;
+  max-width: 100%;
   display: flex;
   padding: 5px;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  height: 25em;
+  height: 23em;
   overflow: auto;
   z-index: 1;
+  position: relative;
 }
 
 .versionItem {
   width: auto;
   height: auto;
   padding: 10px;
-  min-width: 40%;
+  min-width: 80%;
   /* border-style: solid; */
   /* border-color: black; */
   background-color: rgb(91, 91, 91);
@@ -340,7 +343,6 @@ input {
   width: auto;
   height: auto;
   padding: 10px;
-  overflow: auto;
   min-width: 30%;
   /* max-width: 40%; */
   /* border-style: solid; */
@@ -550,5 +552,13 @@ input {
   display: flex;
   justify-content: center;
   align-content: center;
+  flex-direction: row;
+}
+
+.hplists {
+  display:flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 50%
 }
