@@ -10,7 +10,7 @@ class Homepage extends React.Component {
     super(props);
     this.state = {
       users: [],
-      loggedInUser: null,
+
       uploads: [],
       VCShow: false,
       currentVersion: ''
@@ -19,30 +19,19 @@ class Homepage extends React.Component {
 
   componentDidUpdate = (prevProps) => {
     if (this.props.user !== prevProps.user) {
-      this.getUserInfo();
+      this.props.getUserInfo();
     }
   }
 
   componentDidMount = () => {
     if (this.props.user !== 'Guest') {
       console.log('hit')
-      this.getUserInfo();
+      this.props.getUserInfo();
     }
     this.getAllUsers();
   }
 
-  getUserInfo = () => {
-    axios({
-      method: "get",
-      withCredentials: true,
-      url: 'http://localhost:3005/account/getUser'
-    })
-      .then((res) => {
-        this.setState({
-          loggedInUser: res.data,
-        })
-      })
-  }
+
 
   getAllUsers = () => {
     axios({
@@ -70,11 +59,6 @@ class Homepage extends React.Component {
         })
 
       })
-  }
-
-  goToMyProf = () => {
-    // when clicking on my profile pic or username, go to user profile prage
-
   }
 
   goToRandomUsersProf = () => {
@@ -105,7 +89,6 @@ class Homepage extends React.Component {
     this.setState({
       VCShow: true,
     })
-
   };
 
 
@@ -176,7 +159,7 @@ class Homepage extends React.Component {
           </div>
         </>
       )
-    } else if (this.state.loggedInUser !== null) {
+    } else if (this.props.loggedInUser !== null) {
       return (
         <>
           {this.state.VCShow && <VersionControl version={this.state.currentVersion} close={this.handleClose} />}
@@ -184,9 +167,9 @@ class Homepage extends React.Component {
           <div className='homepage-container'>
 
             <div className='homepage-userinfo-container'>
-              <img className='usersphoto' src={this.state.loggedInUser.avatar} alt='profile' />
-              <h4 className='username-h4'>{this.props.user}</h4>
-              <p className='userbio'>{this.state.loggedInUser.bio}</p>
+              <img className='usersphoto' onClick={this.props.goProfile} src={this.props.loggedInUser.avatar} alt='profile' />
+              <h4 className='username-h4' onClick={this.props.goProfile} >{this.props.user}</h4>
+              <p className='userbio'>{this.props.loggedInUser.bio}</p>
             </div>
             <div className="versionList">{usersList}</div>
             <div className="versionList">{musicList}</div>
