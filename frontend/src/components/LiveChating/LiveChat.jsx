@@ -33,15 +33,14 @@ var LiveChat = function({user, closeChat}) {
 
 
   return (
-    <>
-      <button onClick={(e) => {closeChat(e)}}>close</button>
-
+    <div className='modal-wrapper'>
+      <button className='modal-button-close' onClick={(e) => {closeChat(e)}}>&times; </button>
       <div className='chat-container'>
         <SideBar username={user} chatroom = {chatroom} setCurrentRoom={setCurrentRoom} setRoomChange={setRoomChange} currentRoom={currentRoom}/>
         <div className='chat-divide-line'></div>
         <ChatBox username={user} currentRoom={currentRoom} whetherRoomChange={whetherRoomChange} setRoomChange={setRoomChange} storeMessage = {storeMessage} setStoreMessage={setStoreMessage}/>
       </div>
-    </>
+    </div>
 
   )
 
