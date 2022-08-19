@@ -10,6 +10,7 @@ class Homepage extends React.Component {
     super(props);
     this.state = {
       users: [],
+      allusers: [],
       uploads: [],
       VCShow: false,
       currentVersion: ''
@@ -42,6 +43,7 @@ class Homepage extends React.Component {
         // console.log(res.data)
         this.setState({
           users: res.data,
+          allusers: res.data
         }, () => {
           // console.log(this.state.users)
           var uploadsArr = [];
@@ -88,7 +90,7 @@ class Homepage extends React.Component {
     this.setState({
       VCShow: true,
     })
-  };
+  }
 
 
   handleClose = () => {
@@ -133,10 +135,33 @@ class Homepage extends React.Component {
 
   search = (e) => {
     var val = e.target.value;
+    console.log('search: ', val);
     this.setState({
       search: val
     })
+    this.getFiltered()
   }
+
+
+  getFiltered = (e) => {
+    // this.getAllUsers();
+    var search = this.state.search;
+    var users = this.state.allusers;
+    var newUsers = [];
+    if (users.length > 0) {
+      users.forEach((user) => {
+        if (user.username.toLowerCase().includes(search.toLowerCase())) {
+          newUsers.push(user)
+        }
+      })
+      if (newUsers.length > 0) {
+        this.setState({
+          users: newUsers
+        })
+      }
+    }
+  }
+
 
   render() {
     // let newUploads = this.state.uploads;
@@ -152,9 +177,10 @@ class Homepage extends React.Component {
           {this.state.VCShow && <VersionControl version={this.state.currentVersion} close={this.handleClose} />}
           <Navbar reorder={this.reorder} search={this.search} land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view} />
           <div className='homepage-container'>
-
+            <div className='hplists'>
             <div className="versionList">{usersList}</div>
             <div className="versionList">{musicList}</div>
+            </div>
           </div>
         </>
       )
@@ -162,16 +188,20 @@ class Homepage extends React.Component {
       return (
         <>
           {this.state.VCShow && <VersionControl version={this.state.currentVersion} close={this.handleClose} />}
-          <Navbar filter={this.getFiltered} search={this.search} land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view} />
+          <Navbar reorder={this.reorder} search={this.search} land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view} />
           <div className='homepage-container'>
 
-            <div className='homepage-userinfo-container'>
-              <img className='usersphoto' onClick={this.props.goProfile} src={this.props.loggedInUser.avatar} alt='profile' />
-              <h4 className='username-h4' onClick={this.props.goProfile} >{this.props.user}</h4>
-              <p className='userbio'>{this.props.loggedInUser.bio}</p>
-            </div>
-            <div className="versionList">{usersList}</div>
-            <div className="versionList">{musicList}</div>
+              <div className='homepage-userinfo-container'>
+                <div className='homepage-userinfo-container2'>
+                <img className='usersphoto' onClick={this.props.goProfile} src={this.props.loggedInUser.avatar} alt='profile' />
+                <h4 className='username-h4' onClick={this.props.goProfile} >{this.props.user}</h4>
+                <p className='userbio'>{this.props.loggedInUser.bio}</p>
+                </div>
+              </div>
+            <div className='hplists'>
+              <div className="versionList">{usersList}</div>
+              <div className="versionList">{musicList}</div>
+              </div>
           </div>
         </>
       )

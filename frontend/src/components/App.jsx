@@ -76,6 +76,7 @@ class App extends React.Component {
   }
 
   loginSubmitButton = (e) => {
+    console.log('log in:', this.state.username)
     var user = this.state.username;
     var password = this.state.password;
 
@@ -121,7 +122,7 @@ class App extends React.Component {
       <Global backgroundImg={this.state.background}/>
       {this.state.view === 'landing' && <Landing loginVal={this.loginVal} submit={this.loginSubmitButton} goHome={this.goHome} user={this.state.user} changeUser={this.changeUser} userErr={this.state.userErr} exit={this.exitModal} loginButton={this.loginButton} login={this.state.loginModal}/>}
       {this.state.view === 'home' && <Homepage getUserInfo={this.getUserInfo} loggedInUser={this.state.loggedInUser} loginVal={this.loginVal} submit={this.loginSubmitButton} goProfile={this.goProfile} land={this.goLanding} user={this.state.user} changeUser={this.changeUser} userErr={this.state.userErr} view={this.state.view} goHome={this.goHome} loginButton={this.loginButton} login={this.state.loginModal} exit={this.exitModal}/>}
-      {this.state.view === 'profile' && <ProfileHome currentUserId={this.state.loggedInUser._id} />}
+      {this.state.view === 'profile' && <ProfileHome goHome={this.goHome} currentUserId={this.state.loggedInUser._id} />}
 
       {/*<Global backgroundImg={this.state.background}/>
       {this.state.view === 'landing' && <Landing goHome={this.goHome} user={this.state.user} changeUser={this.changeUser}/>}

@@ -11,12 +11,12 @@
 } */
 
 .vCModalBackground {
-  width: 100vw;
-  height: 100vh;
+  padding: 0;
+  width: 98vw;
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 270px;
   position: absolute;
 }
 
@@ -24,7 +24,7 @@
   width: auto;
   height: auto;
   background-color: rgb(46, 46, 46);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: 0px 30px 50px black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,21 +68,21 @@
 
 
 .uploadModalBackground {
-  width: 100%;
-  height: 100%;
+  padding: 0;
+  width: 98vw;
+  height: 60vh;
+  background-color: rgba(0,0,0,0);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 270px;
   position: absolute;
-  z-index: 1002;
 }
 
 .uploadModalContainer {
   width: auto;
   height: auto;
   background-color: rgb(46, 46, 46);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: 0px 30px 50px black;
   display: flex;
   flex-direction: column;
   padding: 15px;

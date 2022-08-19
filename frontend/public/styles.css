@@ -20,7 +20,9 @@ input {
 }
 /*==========Nav Bar==========*/
 .navbar {
-  background-image: url('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg');
+  /* background-image: url('https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg'); */
+  /* background-color: rgb(89, 0, 255); */
+  background: linear-gradient(to right, rgba(89, 0, 255, .5), rgba(0,0,0));
   background-size: cover;
   max-height: 6vh;
   display: flex;
@@ -35,9 +37,11 @@ input {
   max-width: 10vw;
   margin: 2px;
   border-radius: 5px;
-  margin: 0;
+  font-size: 45px;
+  color:white;
   align-content: center;
   justify-content: center;
+  font-family: cursive;
 }
 #logout {
   margin-top: 1vh;
@@ -53,10 +57,7 @@ input {
 /* #modalExit {
   width: fit-content;
 } */
-/*==========Landing Page==========*/
-.mainLanding {
-
-}
+/*=======================================Landing Page=======================================*/
 
 .weTitle {
   color: rgb(89, 0, 255);
@@ -84,42 +85,28 @@ input {
 .buttonsRowLp {
   display: flex;
   justify-content: space-around;
-  padding-top: 105px;
-  margin-left: 70px;
-  margin-right: 50px;
+  padding-top: 7%;
 }
 
-.landingModalBackground {
+
+.lPModalBackground {
+  width: 95vw;
+  height: 50vh;
   display: flex;
-  background-color: rgba(0, 0, 0, .5);
   justify-content: center;
   align-items: center;
-  z-index: 1001;
-  padding-top: 10em;
-  margin-left: 52em;
-  margin-bottom: 100em;
-  justify-content: center;
+  padding-bottom: 270px;
   position: absolute;
 }
 
-.landingModalContainer {
-  /* width: 750px;
-  height: auto;
-  background-color: rgb(240, 245, 249);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  display: flex;
-  flex-direction: column;
-  padding: 25px;
-  margin-bottom: 165px;
-  border-radius: 4px;
-  z-index: 1002;
-  position: absolute; */
+.lPModalContainer {
   width: auto;
   height: auto;
   background-color: rgb(46, 46, 46);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 15px;
   border-radius: 4px;
   position: absolute;
@@ -152,19 +139,32 @@ input {
 }
 
 
-/*==========homepage==========*/
+/*==========================================homepage====================================*/
 .homePage {
   background: white;
 }
 
 .homepage-userinfo-container {
+  min-width: 20%;
+  min-height: auto;
+  height: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background-color: rgb(91, 91, 91);
   max-width: 20vw;
   max-height: fit-content;
   border-radius: 5px;
-  margin: 10px;
+  margin-bottom: auto;
+  margin-top: 150px;
+  margin-right: 50px;
+  align-content: center;
+  justify-content: center;
+}
+
+.homepage-userinfo-container2 {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
   align-content: center;
   justify-content: center;
 }
@@ -176,19 +176,15 @@ input {
 }
 
 .userbio {
-  margin: 0 auto;
-  margin-bottom: 10px;
-  max-width: 90%;
-  text-align: justify;
-  color: rgb(255, 115, 0);
+  color: rgb(91, 91, 91);;
+  background-color: rgb(221, 202, 255);
+  border-style: solid;
 }
 
 .username-h4 {
- margin: 0 auto;
- margin-top: 10px;
- margin-bottom: 10px;
- max-width: 90%;
- color: rgb(255, 115, 0);
+  color: rgb(91, 91, 91);;
+  background-color: rgb(221, 202, 255);
+  border-style: solid;
 }
 
 .homepage-usersList-container {
@@ -204,14 +200,19 @@ input {
 }
 
 .usersList-photo {
-  max-height: 90%;
-  max-width: 90%;
+  max-height: 80%;
+  max-width: 5em;
   margin: 10px;
+}
+
+.username-photo {
+  background-color: gray;
+  border-radius: 10px;
 }
 
 .usersList-orderedList {
   display: flex;
-  margin: 10px auto;
+  /* margin: 10px auto; */
   flex-direction: row;
   /* margin-bottom: 10px;
   max-width: 90%;
@@ -249,7 +250,7 @@ input {
   flex-direction: row;
 }
 
-/*==========HPMusicList==========*/
+/*===========================================HPMusicList===============================================*/
 
 /*----------------------------------------  MAIN  -------------------------------------------------*/
 
@@ -328,20 +329,25 @@ input {
 /*------------------------------------------  VERSION LIST  ------------------------------------------*/
 
 .versionList {
+  border-style: solid;
+  background-color: rgb(40, 40, 40);
+  border-color: rgb(57, 57, 57);
+  border-radius: 10px;
+  max-width: 100%;
   display: flex;
-  padding: 25px;
-  justify-content: center;
-  align-items: center;
+  padding: 5px;
   flex-direction: column;
-  height: 25em;
+  height: 23em;
   overflow: auto;
+  z-index: 1;
+  position: relative;
 }
 
 .versionItem {
   width: auto;
   height: auto;
   padding: 10px;
-  min-width: 40%;
+  min-width: 80%;
   /* border-style: solid; */
   /* border-color: black; */
   background-color: rgb(91, 91, 91);
@@ -349,23 +355,6 @@ input {
   border-radius: 10px;
   margin: 10px;
   /* z-index: 0; */
-}
-
-.homepage-userlist-div {
-  display: flex;
-  width: auto;
-  height: auto;
-  padding: 10px;
-  min-width: 30%;
-  /* max-width: 40%; */
-  /* border-style: solid; */
-  /* border-color: black; */
-  /* flex-direction: row; */
-  justify-content: space-between;
-  background-color: rgb(91, 91, 91);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 10px;
-  margin: 10px;
 }
 
 
@@ -415,40 +404,77 @@ input {
 }
 
 .downloadButton {
-  background-color:rgb(131, 131, 131);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: rgb(91, 91, 91);
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
-  padding: 5px;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-width: 0;
   border-radius: 8px;
-  font-size: 8pt;
-  color: rgb(255, 115, 0);
+  font-size: 10pt;
+  color: rgb(147, 88, 255);
   font-weight: bold;
+  margin-top: 10px;
+  display: flex;
 }
 
 .messageButton {
-  background-color:rgb(131, 131, 131);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color:  rgb(91, 91, 91);
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
-  padding: 5px;
-  margin-bottom: 15px;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-width: 0;
   border-radius: 8px;
-  font-size: 8pt;
-  color: rgb(255, 115, 0);
+  font-size: 10pt;
+  color: rgb(147, 88, 255);
   font-weight: bold;
+  margin-top: 10px;
+  display: flex;
+}
+
+.refreshButton {
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-width: 0;
+  border-radius: 8px;
+  font-size: 15pt;
+  color: rgb(147, 88, 255);
+  font-weight: bold;
+  margin-top: 10px;
+  display: flex;
+}
+
+.refreshButton:hover {
+  color: rgb(195, 162, 255);
+  transition-duration: .5s;
+}
+
+.messageButton:hover {
+  color: rgb(195, 162, 255);
+  transition-duration: .5s;
 }
 
 .requestButton {
-  background-color:rgb(131, 131, 131);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color:  rgb(91, 91, 91);
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
-  padding: 5px;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-width: 0;
   border-radius: 8px;
-  font-size: 8pt;
-  color: rgb(255, 115, 0);
+  font-size: 10pt;
+  color: rgb(147, 88, 255);
   font-weight: bold;
+  margin-top: 10px;
+  display: flex;
+}
+
+.requestButton:hover {
+  color: rgb(195, 162, 255);
+  transition-duration: .5s;
 }
 
 .modalCloseButton {
@@ -531,22 +557,28 @@ input {
 
 .homepage-userprojects-div {
   display: flex;
-  color: rgb(255, 115, 0);
+  color: rgb(91, 91, 91);;
+  background-color: rgb(221, 202, 255);
+  border-style: solid;
+  width:80%;
+  margin-left: 5%;
+  border-radius: 10px;;
+  border-width: 3px;
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
-  font-size: 10pt;
+  font-size: 20pt;
   font-weight: bold;
-  padding: 0;
+  padding: 10px;
   /* padding-right: 5px; */
   /* padding-top: 2px;
   padding-bottom: 5px; */
-  max-height: 30px;
+  /* margin-bottom: auto; */
   text-align: center;
   flex-direction: column;
 }
 
 .homepage-userprojects-buttons {
   display: flex;
-  color: rgb(255, 115, 0);
+  color: rgb(147, 88, 255);
   text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
   font-size: 10pt;
   font-weight: bold;
@@ -565,10 +597,48 @@ input {
   display: flex;
   justify-content: center;
   align-content: center;
-  flex-direction: column;
-  z-index: 1;
+  flex-direction: row;
 }
 
+.homepage-userlist-div {
+  display: flex;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  min-width: 30%;
+  /* max-width: 40%; */
+  /* border-style: solid; */
+  /* border-color: black; */
+  /* flex-direction: row; */
+  justify-content: space-between;
+  background-color: rgb(91, 91, 91);
+  border-style: solid;
+  border-color: rgb(91, 91, 91);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.hplists {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-top: 3em;
+  width: 50%
+}
+
+::-webkit-scrollbar {
+  width: 1mm;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(221, 202, 255)
+}
+
+::-webkit-scrollbar-thumb {
+  background:  rgb(89, 0, 255);
+}
 
 
 /* ///////////// for live chating ////////// */

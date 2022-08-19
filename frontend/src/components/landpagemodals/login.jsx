@@ -26,7 +26,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className='landingModalBackground'>
+      <div className='lPModalBackground'>
         <div className='lPModalContainer'>
           <div className="modalTopRow">
             <div className="orangeText24">
@@ -37,6 +37,7 @@ class Login extends React.Component {
             </button>
           </div>
           <div>
+            <div>
             <input
               type='text'
               placeholder='Username'
@@ -44,13 +45,16 @@ class Login extends React.Component {
               onChange={this.props.loginVal}
               className="forms"
             />
+            </div>
+            <div>
             <input
-              type='text'
+              type='password'
               placeholder='Password'
               name='password'
               onChange={this.props.loginVal}
               className="forms"
             />
+            </div>
           </div>
           <div>
             <button className="modalSubmitButton" onClick={this.props.submit}>Submit</button>
