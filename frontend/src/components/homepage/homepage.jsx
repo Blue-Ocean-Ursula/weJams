@@ -4,6 +4,8 @@ import HPMusicList from './musicList.jsx';
 import HPUsersList from './usersList.jsx';
 import axios from 'axios';
 import VersionControl from '../VersionControl/VersionControl.jsx';
+import LiveChat from '../LiveChating/LiveChat.jsx'
+
 //12$asfse456
 class Homepage extends React.Component {
   constructor(props) {
@@ -13,8 +15,12 @@ class Homepage extends React.Component {
       allusers: [],
       uploads: [],
       VCShow: false,
-      currentVersion: ''
+      currentVersion: '',
+      showChat: false,
+      username: 'Candace'
     }
+    this.openChat = this.openChat.bind(this);
+    this.closeChat = this.closeChat.bind(this);
   }
 
   componentDidUpdate = (prevProps) => {
@@ -43,6 +49,7 @@ class Homepage extends React.Component {
         // console.log(res.data)
         this.setState({
           users: res.data,
+          allusers: res.data
         }, () => {
           // console.log(this.state.users)
           var uploadsArr = [];
@@ -134,7 +141,7 @@ class Homepage extends React.Component {
 
   search = (e) => {
     var val = e.target.value;
-    console.log(val);
+    console.log('search: ', val);
     this.setState({
       search: val
     })
@@ -161,6 +168,21 @@ class Homepage extends React.Component {
     }
   }
 
+  openChat = (e) => {
+    e.preventDefault();
+    this.setState({
+      showChat: true
+    })
+
+  }
+
+  closeChat = (e) => {
+    e.preventDefault();
+    this.setState({
+      showChat: false
+    })
+
+  }
 
   render() {
     // let newUploads = this.state.uploads;
@@ -168,14 +190,18 @@ class Homepage extends React.Component {
       <HPMusicList key={Math.random()} seeVCModal={this.seeVCModal} usersUploads={uploaded2.version_history[0]} />
     ));
     const usersList = this.state.users.map((user) => (
-      <HPUsersList key={Math.random()} user={user} uploads={user.uploads} />
+      <HPUsersList openChat={this.openChat} key={Math.random()} user={user} uploads={user.uploads} />
     ));
     if ((this.props.user === 'Guest') || this.props.user === null) {
       return (
         <>
           {this.state.VCShow && <VersionControl version={this.state.currentVersion} close={this.handleClose} />}
           <Navbar reorder={this.reorder} search={this.search} land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view} />
+
           <div className='homepage-container'>
+          <div id='chatDiv'>
+        {this.state.showChat && <LiveChat closeChat={this.closeChat} user={this.props.user} />}
+          </div>
             <div className='hplists'>
             <div className="versionList">{usersList}</div>
             <div className="versionList">{musicList}</div>
@@ -189,7 +215,9 @@ class Homepage extends React.Component {
           {this.state.VCShow && <VersionControl version={this.state.currentVersion} close={this.handleClose} />}
           <Navbar reorder={this.reorder} search={this.search} land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view} />
           <div className='homepage-container'>
-
+          <div id='chatDiv'>
+        {this.state.showChat && <LiveChat closeChat={this.closeChat} user={this.state.username} />}
+          </div>
               <div className='homepage-userinfo-container'>
                 <div className='homepage-userinfo-container2'>
                 <img className='usersphoto' onClick={this.props.goProfile} src={this.props.loggedInUser.avatar} alt='profile' />
