@@ -23,7 +23,8 @@ class Navbar extends React.Component {
       <div>
       <span className='navbar'>
         <div id='logo'>
-          <img src='https://res.cloudinary.com/dktim9rur/image/upload/v1660579940/Screen_Shot_2022-08-15_at_10.12.00_AM_ju6kt7.jpg' alt='logo'/>
+          {/* <img src='https://res.cloudinary.com/dktim9rur/image/upload/v1660579940/Screen_Shot_2022-08-15_at_10.12.00_AM_ju6kt7.jpg' alt='logo'/> */}
+          WeJamz
         </div>
         <button onClick={this.props.reorder}>Refresh</button>
         <div id='search'>

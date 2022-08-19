@@ -190,15 +190,17 @@ class Homepage extends React.Component {
           <Navbar reorder={this.reorder} search={this.search} land={this.props.land} user={this.props.user} loginVal={this.props.loginVal} submit={this.props.submit} loginButton={this.props.loginButton} changeUser={this.props.changeUser} goHome={this.props.goHome} userErr={this.props.userErr} exit={this.props.exit} login={this.props.login} view={this.props.view} />
           <div className='homepage-container'>
 
-            <div className='homepage-userinfo-container'>
-              <img className='usersphoto' onClick={this.props.goProfile} src={this.props.loggedInUser.avatar} alt='profile' />
-              <h4 className='username-h4' onClick={this.props.goProfile} >{this.props.user}</h4>
-              <p className='userbio'>{this.props.loggedInUser.bio}</p>
-            </div>
+              <div className='homepage-userinfo-container'>
+                <div className='homepage-userinfo-container2'>
+                <img className='usersphoto' onClick={this.props.goProfile} src={this.props.loggedInUser.avatar} alt='profile' />
+                <h4 className='username-h4' onClick={this.props.goProfile} >{this.props.user}</h4>
+                <p className='userbio'>{this.props.loggedInUser.bio}</p>
+                </div>
+              </div>
             <div className='hplists'>
-            <div className="versionList">{usersList}</div>
-            <div className="versionList">{musicList}</div>
-            </div>
+              <div className="versionList">{usersList}</div>
+              <div className="versionList">{musicList}</div>
+              </div>
           </div>
         </>
       )
