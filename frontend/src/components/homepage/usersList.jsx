@@ -6,9 +6,11 @@ class HPUsersList extends React.Component {
     super(props);
     this.state = {
       usersSongs: [],
-      showChat: false
+      showChat: false,
+      username: 'Candace'
     }
-    this.handleChat = this.handleChat.bind(this);
+    this.openChat = this.openChat.bind(this);
+    this.closeChat = this.closeChat.bind(this);
   }
 
   componentDidMount = () => {
@@ -32,10 +34,18 @@ class HPUsersList extends React.Component {
     })
   }
 
-  handleChat = (e) => {
+  openChat = (e) => {
     e.preventDefault();
     this.setState({
       showChat: true
+    })
+
+  }
+
+  closeChat = (e) => {
+    e.preventDefault();
+    this.setState({
+      showChat: false
     })
 
   }
@@ -53,7 +63,7 @@ class HPUsersList extends React.Component {
     // ));
     return (
       <>
-        {this.state.showChat && <LiveChat/>}
+        {this.state.showChat && <LiveChat closeChat={this.closeChat} user={this.state.username}/>}
         <div className="homepage-userlist-div">
           <div className="username-photo">
             <img className='usersList-photo' src={this.props.user.avatar} alt='profile' />
@@ -61,7 +71,7 @@ class HPUsersList extends React.Component {
           </div>
           <div className="homepage-userprojects-div">{userUploads}</div>
           <div className="homepage-userprojects-buttons">
-            <button className="messageButton" onClick={this.handleChat}>Message</button>
+            <button className="messageButton" onClick={this.openChat}>Message</button>
             <button className="requestButton">Request Collaboration</button>
           </div>
         </div>

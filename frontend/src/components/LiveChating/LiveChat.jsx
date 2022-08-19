@@ -3,7 +3,7 @@ import SideBar from './SideBar.jsx';
 import axios from 'axios';
 import {ChatBox} from './ChatBox.jsx';
 
-var LiveChat = function({user}) {
+var LiveChat = function({user, closeChat}) {
   const [chatroom, setChatroom] = useState([]);
   const [currentRoom, setCurrentRoom] = useState('');
   const [whetherRoomChange, setRoomChange] = useState(true)
@@ -34,7 +34,7 @@ var LiveChat = function({user}) {
 
   return (
     <>
-      <h1>Live Chat</h1>
+      <button onClick={(e) => {closeChat(e)}}>close</button>
 
       <div className='chat-container'>
         <SideBar username={user} chatroom = {chatroom} setCurrentRoom={setCurrentRoom} setRoomChange={setRoomChange} currentRoom={currentRoom}/>
